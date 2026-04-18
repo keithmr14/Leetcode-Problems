@@ -1,8 +1,12 @@
+import java.util.Arrays;
 import java.util.Objects;
 
 public class ClosestTarget {
 
     public int closestTarget(String[] words, String target, int startIndex) {
+
+        System.out.println("ARR: " + Arrays.toString(words));
+        System.out.println("Target: " + target + "\nStarting Index: " + startIndex);
 
         int end = words.length - 1; // last index
         int i = startIndex; // pointer
@@ -26,16 +30,26 @@ public class ClosestTarget {
             // simulate moving pointer in a circle
             i = (i == end) ? 0 : i + 1; // m
         }
-
         // if distance is left untouched return -1
-        return (minDist != words.length) ? minDist : -1;
+        int result = (minDist != words.length) ? minDist : -1;
+
+        System.out.println("Closest Target Distance: " + result + "\n");
+
+        return result;
     }
 
     public static void main(String[] args) {
 
+        System.out.println("2515. Shortest Distance to Target String in a Circular Array\n");
+
         ClosestTarget ct = new ClosestTarget();
+
         // example 1
         String[] array = {"hello", "i", "am", "leetcode", "hello"};
-        System.out.println(ct.closestTarget(array, "hello", 1));
+        ct.closestTarget(array, "hello", 1);
+
+        // example 2
+        String[] array2 = {"i", "eat", "leetcode"};
+        ct.closestTarget(array2, "ate", 0);
     }
 }

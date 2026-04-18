@@ -3,6 +3,8 @@ import java.util.Arrays;
 class RemoveElement {
     public int removeElement(int[] nums, int val) {
 
+        System.out.println("ORG: " + Arrays.toString(nums));
+
         int k = -1;
         boolean alrHas = false;
 
@@ -17,19 +19,27 @@ class RemoveElement {
                 k++;
             }
         }
-        System.out.println(Arrays.toString(nums));
         // when no removal happened (k wasn't set), return nums length
-        return (k != -1) ? k : nums.length;
+        int result = (k != -1) ? k : nums.length;
+
+        System.out.println("NEW: " + Arrays.toString(nums));
+        System.out.println(result + " valid element/s left.\n");
+
+        return result;
     }
 
     public static void main(String[] args) {
 
+        System.out.println("27. Remove Element\n");
+
         RemoveElement re = new RemoveElement();
+
         // example 1
         int[] array = {0, 1, 0, 2, 0, 3};
-        System.out.println(re.removeElement(array, 0));
+        re.removeElement(array, 0);
+
         // example 2
         int[] array2 = {0, 0, 0, 0, 0, 0};
-        System.out.println(re.removeElement(array2, 1));
+        re.removeElement(array2, 1);
     }
 }
