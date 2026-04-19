@@ -1,9 +1,8 @@
 import java.util.Arrays;
 
 public class RemoveDuplicates {
-    public static void removeDuplicates(int[] nums) {
 
-        System.out.println("ORG: " + Arrays.toString(nums));
+    public static int removeDuplicates(int[] nums) {
 
         int lastNum = nums[0];
         int k = 1; // pointer for the valid elements
@@ -15,9 +14,8 @@ public class RemoveDuplicates {
                 k++;
             }
         }
-
         System.out.println("NEW: " + Arrays.toString(nums));
-        System.out.println(k + " valid element/s left.\n");
+        return k;
     }
 
     public static void main(String[] args) {
@@ -26,10 +24,12 @@ public class RemoveDuplicates {
 
         // example 1
         int[] array = {1, 2, 2, 3, 3, 4, 5, 6, 7, 8};
-        removeDuplicates(array);
+        System.out.println("ORG: " + Arrays.toString(array));
+        System.out.println(removeDuplicates(array) + " valid element/s left.\n");
 
         // example 2
         int[] array2 = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
-        removeDuplicates(array2);
+        System.out.println("ORG: " + Arrays.toString(array2));
+        System.out.println(removeDuplicates(array2) + " valid element/s left.\n");
     }
 }

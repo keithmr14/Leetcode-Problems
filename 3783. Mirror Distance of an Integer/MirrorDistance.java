@@ -1,22 +1,22 @@
 public class MirrorDistance {
 
-    public static void mirrorDistance(int n) {
+    public static int mirrorDistance(int n) {
 
         String reversedStr = new StringBuilder(String.valueOf(n)).reverse().toString();
         int reversedNum = Integer.parseInt(reversedStr);
 
-        int result = Math.abs(n - reversedNum);
-
         System.out.println("||" + n + " - " + reversedNum + "||");
-        System.out.println("Mirror Distance: " + result + "\n");
+        return Math.abs(n - reversedNum);
     }
 
     public static void main(String[] args) {
 
         System.out.println("3783. Mirror Distance of an Integer\n");
 
-        mirrorDistance(25); // example 1
+        // example 1
+        System.out.println("Mirror Distance: " + mirrorDistance(25) + "\n");
 
-        mirrorDistance(10); // example 2
+        // example 2
+        System.out.println("Mirror Distance: " + mirrorDistance(10) + "\n");
     }
 }

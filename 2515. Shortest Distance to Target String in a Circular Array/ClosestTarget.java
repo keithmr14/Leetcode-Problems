@@ -3,10 +3,7 @@ import java.util.Objects;
 
 public class ClosestTarget {
 
-    public static void closestTarget(String[] words, String target, int startIndex) {
-
-        System.out.println("ARR: " + Arrays.toString(words));
-        System.out.println("Target: " + target + "\nStarting Index: " + startIndex);
+    public static int closestTarget(String[] words, String target, int startIndex) {
 
         int end = words.length - 1; // last index
         int i = startIndex; // pointer
@@ -14,8 +11,7 @@ public class ClosestTarget {
 
         // move out of startIndex where distance is 0 and for while loop to have a target
         if(Objects.equals(words[startIndex], target)) {
-            System.out.println("Closest Target Distance: 0\n");
-            return;
+            return 0;
         }
 
         // simulate moving pointer in a circle
@@ -39,10 +35,7 @@ public class ClosestTarget {
             i = (i == end) ? 0 : i + 1;
         }
         // if distance is left untouched return -1
-        int result = (minDist != words.length) ? minDist : -1;
-
-        System.out.println("Closest Target Distance: " + result + "\n");
-
+        return (minDist != words.length) ? minDist : -1;
     }
 
     public static void main(String[] args) {
@@ -51,10 +44,18 @@ public class ClosestTarget {
 
         // example 1
         String[] array = {"hello", "i", "am", "leetcode", "hello"};
-        closestTarget(array, "hello", 1);
+        String target = "hello";
+        System.out.println("ARR: " + Arrays.toString(array));
+        System.out.println("Target: " + target + "\nStarting Index: " + 1);
+        int output = closestTarget(array, target, 1);
+        System.out.println("Closest Target Distance: " + output + "\n");
 
         // example 2
         String[] array2 = {"i", "eat", "leetcode"};
-        closestTarget(array2, "ate", 0);
+        String target2 = "ate";
+        System.out.println("ARR: " + Arrays.toString(array2));
+        System.out.println("Target: " + target2 + "\nStarting Index: " + 0);
+        int output2 = closestTarget(array, target2, 0);
+        System.out.println("Closest Target Distance: " + output2 + "\n");
     }
 }

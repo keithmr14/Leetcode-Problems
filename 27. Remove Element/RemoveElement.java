@@ -2,21 +2,19 @@ import java.util.Arrays;
 
 class RemoveElement {
 
-    public static void removeElement(int[] nums, int val) {
-
-        System.out.println("ORG: " + Arrays.toString(nums));
+    public static int removeElement(int[] nums, int val) {
 
         int k = -1; // pointer for the valid elements
         boolean alrHas = false;
 
         for(int i = 0; i < nums.length; i++) {
             if(nums[i] == val && !alrHas) {
-                
+
                 k = i; // set k the first time it founds a copy, otherwise ignore
                 alrHas = true;
-                
+
             } else if(nums[i] != val && k != -1) {
-                
+
                 nums[k] = nums[i]; // doesn't copy when no adjustment in position happened
                 k++;
             }
@@ -25,7 +23,7 @@ class RemoveElement {
         int result = (k != -1) ? k : nums.length;
 
         System.out.println("NEW: " + Arrays.toString(nums));
-        System.out.println(result + " valid element/s left.\n");
+        return k;
     }
 
     public static void main(String[] args) {
@@ -34,10 +32,14 @@ class RemoveElement {
 
         // example 1
         int[] array = {0, 1, 0, 2, 0, 3};
-        removeElement(array, 0);
+        System.out.println("ORG: " + Arrays.toString(array));
+        System.out.println("Remove: " + 0);;
+        System.out.println(removeElement(array, 0) + " valid element/s left.\n");
 
         // example 2
         int[] array2 = {0, 0, 0, 0, 0, 0};
-        removeElement(array2, 1);
+        System.out.println("ORG: " + Arrays.toString(array2));
+        System.out.println("Remove: " + 1);
+        System.out.println(removeElement(array2, 1) + " valid element/s left.\n");
     }
 }

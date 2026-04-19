@@ -2,9 +2,7 @@ import java.util.Arrays;
 
 public class PlusOne {
 
-    public static void plusOne(int[] digits) {
-
-        System.out.println(Arrays.toString(digits) + " + 1");
+    public static int[] plusOne(int[] digits) {
 
         // start from the last digit
         int lastDig = digits.length - 1;
@@ -21,12 +19,9 @@ public class PlusOne {
                 if(lastDig != 0) digits[lastDig - 1]++;
 
                 lastDig--;
-
-            } else {
-                // return at this point if there's no need to increase array size
-                System.out.println("= " + Arrays.toString(digits) + "\n");
-                return;
-            }
+                
+            } else return digits;
+            // return at this point if there's no need to increase array size
         }
 
         // if left with a leading zero, increase array size and start with 1
@@ -36,7 +31,7 @@ public class PlusOne {
         // copy old array numbers adjusting to right by 1 unit
         System.arraycopy(digits, 0, incSize, 1, digits.length);
 
-        System.out.println("= " + Arrays.toString(incSize) + "\n");
+        return incSize;
     }
 
     public static void main(String[] args) {
@@ -45,11 +40,14 @@ public class PlusOne {
 
         // example 1
         int[] array = {1, 2, 3};
-        plusOne(array);
+        System.out.println(Arrays.toString(array) + " + 1");
+        int[] output = plusOne(array);
+        System.out.println("= " + Arrays.toString(output) + "\n");
 
         // example 1
         int[] array2 = {9};
-        plusOne(array2);
+        System.out.println(Arrays.toString(array2) + " + 1");
+        int[] output2 = plusOne(array2);
+        System.out.println("= " + Arrays.toString(output2) + "\n");
     }
-
 }
