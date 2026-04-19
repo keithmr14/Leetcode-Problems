@@ -1,3 +1,7 @@
+import java.util.Arrays;
+
+public class ConcatArray {
+
     public static int[] getConcatenation(int[] nums) {
 
         int n = nums.length;
