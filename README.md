@@ -6,7 +6,7 @@
       <code>keithmr14</code> 🔗
     </a>
   </p>
-  <p>A structured compilation of coding challenges solved using <b>Java</b>.</p>
+  <p>A compilation of coding challenges I solved using <b>Java</b>.</p>
 </div>
 
 ---
@@ -15,7 +15,7 @@
 
 | <img src="https://img.shields.io/badge/-Easy-brightgreen" height="25"> | <img src="https://img.shields.io/badge/-Medium-yellow" height="25"> | <img src="https://img.shields.io/badge/-Hard-red" height="25"> |
 | :---: | :---: | :---: |
-| **17** Solved | **5** Solved | **0** Solved |
+| **18** Solved | **5** Solved | **0** Solved |
 
 ---
 
