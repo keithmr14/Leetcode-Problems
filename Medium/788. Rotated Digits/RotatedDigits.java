@@ -1,5 +1,3 @@
-package Medium;
-
 public class RotatedDigits {
 
     public static int rotatedDigits(int n) {
