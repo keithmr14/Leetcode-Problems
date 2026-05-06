@@ -80,9 +80,6 @@ public class RotateBox {
 
     public static void printBox(char[][] arrays) {
 
-        for(char[] arr : arrays) {
-
-            System.out.println(Arrays.toString(arr));
-        }
+        for(char[] arr : arrays) System.out.println(Arrays.toString(arr));
     }
 }
