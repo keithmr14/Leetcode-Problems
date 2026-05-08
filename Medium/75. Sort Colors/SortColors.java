@@ -1,4 +1,3 @@
-import java.io.PrintStream;
 import java.util.Arrays;
 
 public class SortColors {
@@ -7,26 +6,16 @@ public class SortColors {
 
         int[] colors = new int[3]; // red, white, blue unsorted counter
 
-        for(int num : nums) {
+        for(int num : nums) { colors[num]++; } // count color appearance
 
-            colors[num]++; // count color appearance
-        }
+        int red = colors[0];
+        int white = colors[1];
 
-        for(int i = 0; i < nums.length; i++) {
+        for(int i = 0; i < red; i++) { nums[i] = 0; } // place reds
 
-            int color = 0; // assume red exists
+        for(int i = red; i < red + white; i++) { nums[i] = 1; } // place whites
 
-            if(colors[0] == 0) { // if red count = 0
-
-                color = 1; // change color to white
-
-                // if white count = 0, change color to blue
-                if(colors[1] == 0) color = 2;
-            }
-
-            nums[i] = color; // put the right color into place
-            colors[color]--; // reduce unsorted count
-        }
+        for(int i = red + white; i < nums.length; i++) { nums[i] = 2; } // place blues
 
         System.out.println("Sorted: " + Arrays.toString(nums));
     }
