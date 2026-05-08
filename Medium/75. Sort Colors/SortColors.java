@@ -1,3 +1,5 @@
+package Medium;
+
 import java.util.Arrays;
 
 public class SortColors {
@@ -17,7 +19,8 @@ public class SortColors {
 
         for(int i = red + white; i < nums.length; i++) { nums[i] = 2; } // place blues
 
-        System.out.println("Sorted: " + Arrays.toString(nums));
+        // remove this to reduce runtime in leetCode, add to show result
+        // System.out.print(Arrays.toString(nums));
     }
 
     public static void main(String[] args) {
@@ -27,11 +30,13 @@ public class SortColors {
         // example 1
         int[] a1 = {2, 0, 2, 1, 1, 0};
         System.out.println("\n" + Arrays.toString(a1));
+        System.out.print("Sorted: ");
         sortColors(a1);
 
         // example 2
         int[] a2 = {2, 0, 1};
-        System.out.println("\n" + Arrays.toString(a2));
+        System.out.println("\n\n" + Arrays.toString(a2));
+        System.out.print("Sorted: ");
         sortColors(a2);
     }
 }
