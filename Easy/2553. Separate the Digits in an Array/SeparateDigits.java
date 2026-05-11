@@ -1,50 +1,56 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class SeparateDigits {
 
     public static int[] separateDigits(int[] nums) {
 
-        // separated digits result, expect 5x length
-        ArrayList<Integer> list = new ArrayList<>(nums.length * 5);
+        // separated digits result, expect 4x length
+        List<Integer> list = new ArrayList<>(nums.length * 4);
 
         for(int num : nums) { // for each number in the array
 
-            boolean first = true; // a digit can equal zero only if !lead digit
+            char placeVal = 'z';
+            // based on how many digit num has, start dividing
+            // and getting those number in its specific place value
 
-            if(num / 100000 != 0) {
+            if(num >= 100000) placeVal = 'a';
 
-                list.add(num / 100000);
-                num %= 100000;
-                first = false;
+            else if(num >= 10000) placeVal = 'b';
+
+            else if(num >= 1000) placeVal = 'c';
+
+            else if(num >= 100) placeVal = 'd';
+
+            else if(num >= 10) placeVal = 'e';
+
+            switch(placeVal) {
+
+                case 'a': // get the digit at 100,000 place value
+                    list.add(num / 100000);
+                    num %= 100000;
+                case 'b': // get the digit at 10,000 place value
+                    list.add(num / 10000);
+                    num %= 10000;
+                case 'c': // get the digit at 1,000 place value
+                    list.add(num / 1000);
+                    num %= 1000;
+                case 'd': // get digit at 100 place value
+                    list.add(num / 100);
+                    num %= 100;
+                case 'e': // get digit at 10 place value
+                    list.add(num / 10);
+                    num %= 10;
+                default: // last digit always exist at 1 place value
+                    list.add(num);
             }
-            if(num / 10000 != 0 || !first) {
-
-                list.add(num / 10000);
-                num %= 10000;
-                first = false;
-            }
-            if(num / 1000 != 0 || !first) {
-
-                list.add(num / 1000);
-                num %= 1000;
-                first = false;
-            }
-            if(num / 100 != 0 || !first) {
-
-                list.add(num / 100);
-                num %= 100;
-                first = false;
-            }
-            if(num / 10 != 0 || !first) {
-
-                list.add(num / 10);
-                num %= 10;
-            }
-            list.add(num);
         }
-        // convert list to array then return
-        return list.stream().mapToInt(i -> i).toArray();
+        int[] result = new int[list.size()];
+        // convert arraylist to array
+        for (int i = 0; i < list.size(); i++) { result[i] = list.get(i); }
+
+        return result;
     }
 
     public static void main(String[] args) {
