@@ -29,7 +29,7 @@ public class MergeKLists {
 
                 ListNode next = curr.next;
                 if(next.val == curr.val) curr = curr.next;
-                else break; // terminate while if not the same
+                else break; // terminate loop if not the same number
             }
             // skip nodes from head that's already merged
             lists[s] = curr.next;
