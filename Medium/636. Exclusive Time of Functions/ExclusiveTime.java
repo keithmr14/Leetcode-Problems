@@ -16,7 +16,7 @@ public class ExclusiveTime {
 
         int lastTime = 0; // the default is 0, but it will always be corrected the 1st run
 
-        for(String log : logs) { // for each log
+        for(String log : logs) { // for each log in the list
 
             String[] parts = log.split(":"); // separate the 3 given data
 
