@@ -8,30 +8,30 @@ public class SpecialDiscount {
         int n = prices.length;
 
         // The best case for this problem is if the prices are in
-        // non-decreasing order. We will best emulate this by making
-        // a stack of non-decreasing prices (not sorted but by removing
+        // non-increasing order. We will best emulate this by making
+        // a stack of non-increasing prices (not sorted but by removing
         // increasing elements).
 
-        Stack<Integer> nonDec = new Stack<>();
+        Stack<Integer> nonInc = new Stack<>();
 
         for(int i = n - 1; i >= 0; i--) { // start at the last index
 
             int price = prices[i];
 
             // continue checking for lesser num on the right until empty
-            while(!nonDec.empty()) {
+            while(!nonInc.empty()) {
 
-                int top = nonDec.peek();
+                int top = nonInc.peek();
 
                 if(top <= price) { // check for the nearest lesser num
                     prices[i] -= top; // apply discount
                     break; // terminate loop
                 }
-                // if price is lesser than the ones on stack, pop them
-                else nonDec.pop();
+                // if the price on stack is greater than current price, pop them
+                else nonInc.pop();
             }
-            // push price, since it has no num/lesser num on the right
-            nonDec.push(price);
+            // push price, since it has greater num (or no num) on the right
+            nonInc.push(price);
         }
         return prices; // return the updated prices
     }
