@@ -9,7 +9,7 @@ public class SpecialDiscount {
 
         for(int i = 0; i < prices.length; i++) {
 
-            int price = prices[i]; // won't change
+            int price = prices[i]; // won't change in the while loop
 
             while(!stack.empty()) {
 
@@ -17,12 +17,12 @@ public class SpecialDiscount {
 
                 if(price > prices[topI]) break; // if > than the biggest num prior
 
-                // else: apply discount, pop, & see if price is still <= to the rest of the stack
+                // else: apply discount, pop, & see if price is still <= rest of the stack
                 prices[topI] -= price;
                 stack.pop();
             }
 
-            stack.push(i); // when all comparison done
+            stack.push(i); // when all/no comparison done
         }
 
         return prices; // updated prices
