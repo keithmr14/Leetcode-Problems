@@ -16,9 +16,9 @@
 
 | <img src="https://img.shields.io/badge/-Easy-brightgreen" height="25"> | <img src="https://img.shields.io/badge/-Medium-yellow" height="25"> | <img src="https://img.shields.io/badge/-Hard-red" height="25"> |
 | :---: | :---: | :---: |
-| **31** Solved | **16** Solved | **3** Solved 
+| **32** Solved | **16** Solved | **3** Solved 
 
-- **Total: 50**
+- **Total: 51**
 
 ---
 
