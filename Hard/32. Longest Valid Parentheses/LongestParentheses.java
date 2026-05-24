@@ -1,14 +1,12 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.Stack;
 
 public class LongestParentheses {
 
     public static int longestValidParentheses(String s) {
 
-        // Using ArrayDeque as it is faster than the legacy java.util.Stack
-        Deque<Integer> stack = new ArrayDeque<>();
+        Stack<Integer> stack = new Stack<>();
         stack.push(-1); // -1 pointer where everything in the left is disconnected to the right
-        int maxLength = 0;
+        int validPts = 0;
 
         for (int i = 0; i < s.length(); i++) {
 
@@ -22,11 +20,11 @@ public class LongestParentheses {
 
                 // so long that ')' <= '(', starting from -1 pointer, it is a valid parentheses
                 // record length starting from -1 pointer to i and compare the biggest so far
-                else maxLength = Math.max(maxLength, i - stack.peek());
+                else validPts = Math.max(validPts, i - stack.peek());
             }
         }
 
-        return maxLength;
+        return validPts;
     }
 
     public static void main(String[] args) {
@@ -43,5 +41,4 @@ public class LongestParentheses {
         System.out.println("\nString: " + s2);
         System.out.println("Longest Valid: " + longestValidParentheses(s2));
     }
-
 }
