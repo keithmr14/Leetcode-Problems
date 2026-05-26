@@ -4,54 +4,45 @@ public class CanBeEqual2 {
 
         int n = s1.length();
 
-        // frequency counter of each letter in even indexes
-        int[] evenCounts = new int[26];
+        int[] even = new int[26]; // frequency counter of each letter in even indexes
 
-        for (int i = 0; i < n; i += 2) {
-            // add count using ASCII index
-            evenCounts[s1.charAt(i) - 'a']++; // +1 to letter count
-            evenCounts[s2.charAt(i) - 'a']--; // -1 to letter count
+        for (int i = 0; i < n; i += 2) { // add count using ASCII index
+
+            even[s1.charAt(i) - 'a']++; // +1 to letter count
+            even[s2.charAt(i) - 'a']--; // -1 to letter count
         }
 
-        for (int count : evenCounts) {
-            /* for it to be equal, characters in even indexes
-            from both strings must cancel each other out */
-            if (count != 0) return false;
-        }
+        //for it to be valid, chars in even indexes from both strings must cancel each other out
+        for (int count : even) if (count != 0) return false;
 
-        // frequency counter of each letter in odd indexes
-        int[] oddCounts = new int[26];
+        int[] odd = new int[26]; // frequency counter of odd indexes
 
         for (int i = 1; i < n; i += 2) {
-            oddCounts[s1.charAt(i) - 'a']++; // +1 to letter count
-            oddCounts[s2.charAt(i) - 'a']--; // -1 to letter count
-        }
-        for (int count : oddCounts) {
-            /* for it to be equal, characters in odd indexes
-            from both strings must cancel each other out */
-            if (count != 0) return false;
+
+            odd[s1.charAt(i) - 'a']++; // +1 to letter count
+            odd[s2.charAt(i) - 'a']--; // -1 to letter count
         }
 
-        // if both counter is empty
-        return true;
+        //for it to be valid, chars in odd indexes from both strings must cancel each other out
+        for (int count : odd) if (count != 0) return false;
+
+        return true; // if both counter is empty
     }
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
 
-        System.out.println("2840. Check if Strings Can be Made Equal With Operations II\n");
+        System.out.println("2840. Check if Strings Can be Made Equal With Operations II");
 
         // example 1
         String a1 = "abcdba";
-        String b1 = "cabdab";
-        System.out.println(a1 + " & " + b1);
-        String out1 = (checkStrings(a1, b1)) ? "CAN be made equal\n" : "CANNOT be made equal\n";
-        System.out.println(out1);
+        String a2 = "cabdab";
+        System.out.println("\nNum 1: " + a1 + "\nNum 2: " + a2);
+        System.out.println("Can be made equal ? " + checkStrings(a1, a2));
 
-        // example 1
-        String a2 = "abe";
+        // example 2
+        String b1 = "abe";
         String b2 = "bea";
-        System.out.println(a2 + " & " + b2);
-        String out2 = (checkStrings(a2, b2)) ? "CAN be made equal\n" : "CANNOT be made equal\n";
-        System.out.println(out2);
+        System.out.println("\nNum 1: " + b1 + "\nNum 2: " + b2);
+        System.out.println("Can be made equal ? " + checkStrings(b1, b2));
     }
 }
