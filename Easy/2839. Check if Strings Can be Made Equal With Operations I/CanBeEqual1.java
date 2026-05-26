@@ -13,22 +13,20 @@ public class CanBeEqual1 {
         return even && odd;
     }
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
 
-        System.out.println("2839. Check if Strings Can be Made Equal With Operations I\n");
-
-        // example 1
-        String a1 = "abcd";
-        String b1 = "cdab";
-        System.out.println(a1 + " & " + b1);
-        String out1 = (canBeEqual(a1, b1)) ? "CAN be made equal\n" : "CANNOT be made equal\n";
-        System.out.println(out1);
+        System.out.println("2839. Check if Strings Can be Made Equal With Operations I");
 
         // example 1
-        String a2 = "abcd";
-        String b2 = "dacb";
-        System.out.println(a2 + " & " + b2);
-        String out2 = (canBeEqual(a2, b2)) ? "CAN be made equal\n" : "CANNOT be made equal\n";
-        System.out.println(out2);
+        String a1 = "jjgg";
+        String a2 = "gjgj";
+        System.out.println("\nNum 1: " + a1 + "\nNum 2: " + a2);
+        System.out.println("Can be made equal ? " + canBeEqual(a1, a2));
+
+        // example 2
+        String b1 = "abcd";
+        String b2 = "cdab";
+        System.out.println("\nNum 1: " + b1 + "\nNum 2: " + b2);
+        System.out.println("Can be made equal ? " + canBeEqual(b1, b2));
     }
 }
