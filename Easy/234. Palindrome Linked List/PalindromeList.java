@@ -12,11 +12,9 @@ public class PalindromeList {
 
     public static boolean isPalindrome(ListNode head) {
 
-        ListNode curr = new ListNode(); // move pointer
-        curr.next = head; // connect to list
+        ListNode curr = head; // move pointer
 
-        // head of the 2nd half of the list
-        ListNode half = head;
+        ListNode half = head; // head of the 2nd half of the list
 
         // 1 node behind half, head of the reversed 1st half of the list
         ListNode prev = new ListNode(head.val);
@@ -25,9 +23,9 @@ public class PalindromeList {
 
         int n = 0; // length of the list
 
-        while(curr.next != null) { // while there is a node unexplored
+        while(curr != null) { // traverse every node
 
-            curr = curr.next; // move pointer to existing node
+            curr = curr.next; // move pointer to next node
 
             n++; // add 1 to length
 
