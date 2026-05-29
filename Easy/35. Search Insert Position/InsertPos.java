@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class InsertPosition {
+public class InsertPos {
 
     public static int searchInsert(int[] nums, int target) {
 
