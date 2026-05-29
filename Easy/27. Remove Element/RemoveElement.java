@@ -1,45 +1,39 @@
 import java.util.Arrays;
 
-class RemoveElement {
+class RemoveElem {
 
     public static int removeElement(int[] nums, int val) {
 
-        int k = -1; // pointer for the valid elements
-        boolean alrHas = false;
+        int k = 0; // count and insert pointer for numbers != val
 
-        for(int i = 0; i < nums.length; i++) {
-            if(nums[i] == val && !alrHas) {
+        for(int i = 0; i < nums.length; i++) { // for each array element
 
-                k = i; // set k the first time it founds a copy, otherwise ignore
-                alrHas = true;
+            if(nums[i] != val) { // compare
 
-            } else if(nums[i] != val && k != -1) {
-
-                nums[k] = nums[i]; // doesn't copy when no adjustment in position happened
-                k++;
+                nums[k] = nums[i]; // move
+                
+                k++; // count and also moves insert index for the next valid number
             }
-        }
-        // when no removal happened (k wasn't set), return nums length
-        int result = (k != -1) ? k : nums.length;
-
-        System.out.println("NEW: " + Arrays.toString(nums));
-        return k;
+        } 
+        return k; // return how many numbers starting from index 0 are valid
     }
 
     public static void main(String[] args) {
 
-        System.out.println("27. Remove Element\n");
+        System.out.println("27. Remove Element");
 
         // example 1
         int[] a1 = {0, 1, 0, 2, 0, 3};
-        System.out.println("ORG: " + Arrays.toString(a1));
-        System.out.println("Remove: " + 0);;
-        System.out.println(removeElement(a1, 0) + " valid element/s left.\n");
+        int t1 = 0;
+        System.out.println("\nArray: " + Arrays.toString(a1));
+        System.out.println("Remove: " + t1);;
+        System.out.println("Number of Valid Elements: " + removeElement(a1, t1));
 
         // example 2
-        int[] a2 = {0, 0, 0, 0, 0, 0};
-        System.out.println("ORG: " + Arrays.toString(a2));
-        System.out.println("Remove: " + 1);
-        System.out.println(removeElement(a2, 1) + " valid element/s left.\n");
+        int[] a2 = {0, 1, 2, 2, 3, 0, 4, 2};
+        int t2 = 2;
+        System.out.println("\nArray: " + Arrays.toString(a2));
+        System.out.println("Remove: " + t2);;
+        System.out.println("Number of Valid Elements: " + removeElement(a2, t2));
     }
 }
