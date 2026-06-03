@@ -10,22 +10,24 @@ public class RemoveDupList {
 
     public static ListNode deleteDuplicates(ListNode head) {
 
-        ListNode dummy = new ListNode(0); // -1 result pointer
+        ListNode dummy = new ListNode(); // -1 result pointer
         ListNode curr = dummy; // insert pointer
 
         int lastNum = -101; // out of bound input instead of null
 
-        while(head != null) {
+        while(head != null) { // head as the traversal pointer
 
-            if(head.val != lastNum) { // if value is != last value
+            if(head.val != lastNum) {
 
                 lastNum = head.val; // mark value as last seen
-                curr.next = new ListNode(head.val); // record unique value
+                curr.next = head; // record unique value only
                 curr = curr.next; // move insert pointer
             }
 
-            head = head.next; // move list pointer
+            head = head.next; // move through the list
         }
+
+        curr.next = null; // close any connection to original list
 
         return dummy.next; // return result
     }
@@ -37,18 +39,18 @@ public class RemoveDupList {
         // example 1
         int[] a1 = {};
         ListNode h1 = buildList(a1);
-        System.out.print("\nWith Duplicates: ");
+        System.out.print("\nw/ Duplicates: ");
         printList(h1);
-        System.out.print("Element Left: ");
+        System.out.print("w/o Duplicates: ");
         printList(deleteDuplicates(h1));
 
 
         // example 2
         int[] a2 = {1, 1, 2, 3, 3};
         ListNode h2 = buildList(a2);
-        System.out.print("\nWith Duplicates: ");
+        System.out.print("\nw/ Duplicates: ");
         printList(h2);
-        System.out.print("Element Left: ");
+        System.out.print("w/o Duplicates: ");
         printList(deleteDuplicates(h2));
     }
 
