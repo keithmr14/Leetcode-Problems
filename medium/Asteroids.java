@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class Asteroids {
 
     public static boolean asteroidsDestroyed(int mass, int[] asteroids) {
+        
         long earthMass = mass;
         int n = asteroids.length;
         int astLeft;
@@ -30,14 +31,12 @@ public class Asteroids {
     public static void main(String[] args) {
 
         System.out.println("2126. Destroying Asteroids");
-
         // example 1
         int[] a1 = {1};
         int m1 = 1;
         System.out.println("\nEarth's Mass: " + m1);
         System.out.println("Asteroids' Mass: " + Arrays.toString(a1));
         System.out.println("Earth Safe? " + asteroidsDestroyed(m1, a1));
-
         // example 2
         int[] a2 = {3, 9, 19, 5, 21};
         int m2 = 10;

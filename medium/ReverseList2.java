@@ -7,6 +7,7 @@ import java.util.Arrays;
 public class ReverseList2 {
 
     public static ListNode reverseBetween(ListNode head, int left, int right) {
+        
         ListNode dummy = new ListNode();
         dummy.next = head;
         ListNode curr = head;
@@ -53,7 +54,6 @@ public class ReverseList2 {
     public static void main(String[] args) {
 
         System.out.println("92. Reverse Linked List II");
-
         // example 1
         int[] a1 = {1, 2, 3, 4, 5};
         int l1 = 2;
@@ -63,7 +63,6 @@ public class ReverseList2 {
         System.out.println("Left: " + l1 + " Right: " + r1);
         System.out.print("Reversed: ");
         printList(reverseBetween(h1, l1, r1));
-
         // example 2
         int[] a2 = {5};
         int l2 = 1;

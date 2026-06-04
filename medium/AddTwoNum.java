@@ -7,6 +7,7 @@ import java.util.Arrays;
 public class AddTwoNum {
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        
         ListNode dummy = new ListNode();
         ListNode curr = dummy;
         int carry = 0;
@@ -30,7 +31,6 @@ public class AddTwoNum {
     public static void main(String[] args) {
 
         System.out.println("2. Add Two Numbers");
-
         // example 1
         int[] a1 = {9, 1};
         int[] b1 = {1, 8};
@@ -39,7 +39,6 @@ public class AddTwoNum {
         System.out.println("\nTwo Num: " + Arrays.toString(a1) + " + " + Arrays.toString(b1));
         System.out.print("Sum: ");
         printList(addTwoNumbers(l1, l2));
-
         // example 2
         int[] a2 = {0};
         int[] b2 = {0};
