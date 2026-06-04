@@ -1,8 +1,8 @@
 package medium;
 
-import java.util.Arrays;
 import utils.ListNode;
 import static utils.ListUtils.*;
+import java.util.Arrays;
 
 public class ReverseList2 {
 
