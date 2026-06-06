@@ -11,7 +11,6 @@ public class AddTwoNum {
         ListNode dummy = new ListNode();
         ListNode curr = dummy;
         int carry = 0;
-
         while(l1 != null || l2 != null || carry > 0) {
             if(l1 == null) l1 = new ListNode(0);
             if(l2 == null) l2 = new ListNode(0);
@@ -20,7 +19,6 @@ public class AddTwoNum {
             int rem = sum % 10; // num at ones place
             curr.next = new ListNode(rem);
             carry = sum / 10; // num at tenth place
-
             l1 = l1.next;
             l2 = l2.next;
             curr = curr.next;

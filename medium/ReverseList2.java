@@ -13,7 +13,6 @@ public class ReverseList2 {
         ListNode curr = head;
         ListNode nodeInRange = null; // pointer for left, right, and in between
         ListNode beforeleft = dummy; // one node before left when left = 1 or update this
-
         // stop on or before left's node
         for(int i = 1; i <= left; i++) {
             if(i + 1 == left) {
@@ -24,23 +23,19 @@ public class ReverseList2 {
             if(i == left) nodeInRange = curr;
             else curr = curr.next;
         }
-
         ListNode tail = nodeInRange; // tail of the reverse range
         ListNode prev = tail; // when reversing node, point those node to prev
-
         // tail doesn't have a node to point yet, so start reversing at the next of left's node
         assert nodeInRange != null: "left node not found";
         nodeInRange = nodeInRange.next;
         left++;
-
         while(left <= right) {
             if(left == right) { // finalize reversing the range
                 ListNode afterRight = nodeInRange.next;
                 nodeInRange.next = prev;
                 beforeleft.next = nodeInRange;
                 tail.next = afterRight;
-            }
-            else { // reverse in between nodes
+            } else { // reverse in between nodes
                 ListNode next = nodeInRange.next;
                 nodeInRange.next = prev;
                 prev = nodeInRange;

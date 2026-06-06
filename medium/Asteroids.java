@@ -13,7 +13,8 @@ public class Asteroids {
         do {
             astLeft = 0; // assume all asteroids will be absorbed
             for(int i = 0; i < n; i++) {
-                int astMass = asteroids[i];if(earthMass >= astMass) earthMass += astMass;
+                int astMass = asteroids[i];
+                if(earthMass >= astMass) earthMass += astMass;
                 else {
                     asteroids[astLeft] = astMass; // move all unabsorbed asteroids in the front
                     astLeft++;

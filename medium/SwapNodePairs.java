@@ -14,13 +14,11 @@ public class SwapNodePairs {
         ListNode lastTail = dummy; // tail of the previous pair, 1 node before first entry
         ListNode tail = head;
         boolean isFirstEntry = true;
-
         while(curr != null) {
             if(isFirstEntry) {
                 tail = curr; // to be switched with the second entry
                 curr = curr.next;
                 isFirstEntry = false;
-
             } else { // second entries only
                 ListNode next = curr.next;
                 curr.next = tail;

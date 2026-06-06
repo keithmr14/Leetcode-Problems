@@ -9,7 +9,6 @@ public class RotateList {
     public static ListNode rotateRight(ListNode head, int k) {
 
         if (head == null || head.next == null || k == 0) { return head; }
-
         ListNode curr = head;
         int n = 1;
         // go to the last node
@@ -18,7 +17,6 @@ public class RotateList {
         curr.next = head; // connect both ends
         k = k % n;
         int cut = n - k; // node before the new head
-
         for(int i = 1; i <= cut; i++) { curr = curr.next; }
 
         head = curr.next;

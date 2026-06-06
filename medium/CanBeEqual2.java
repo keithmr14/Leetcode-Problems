@@ -7,19 +7,16 @@ public class CanBeEqual2 {
         int n = s1.length();
         int[] even = new int[26];
         int[] odd = new int[26];
-
         for(int i = 0; i < n; i += 2) {
             even[s1.charAt(i) - 'a']++;
             even[s2.charAt(i) - 'a']--;
         }
         for(int count : even) if(count != 0) return false;
-
         for(int i = 1; i < n; i += 2) {
             odd[s1.charAt(i) - 'a']++;
             odd[s2.charAt(i) - 'a']--;
         }
         for (int count : odd) if(count != 0) return false;
-
         // if both counter is empty (letters from both cancel each other)
         return true;
     }
