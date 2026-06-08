@@ -1,59 +1,50 @@
 package medium;
 
-import utils.ListNode;
-import static utils.ListUtils.*;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
-public class RemoveNthNode {
+public class StackOperations {
 
-    public static ListNode removeNthFromEnd(ListNode head, int n) {
+    public static List<String> buildArray(int[] target, int n) {
 
-        if(n <= 0) throw new IllegalArgumentException("invalid distance from end");
+        if(n < 1) throw new IllegalArgumentException("n is invalid");
 
-        ListNode dummy = new ListNode();
-        dummy.next = head;
-        ListNode curr = dummy;
-        ListNode prev = dummy; // node before delete node
-        ListNode delete = dummy;
+        List<String> operations = new ArrayList<>();
+        int stream = 1;
 
-        int distance = 0;
-        while(curr.next != null) {
+        for(int i = 0; i < target.length && stream <= n; i++) {
 
-            distance++;
-            curr = curr.next;
+            if(target[i] > n) throw new IllegalArgumentException("target is unattainable");
 
-            if(distance == n) delete = head; // slow pointer
-
-            else if(distance > n) {
-                prev = delete;
-                delete = delete.next;
+            if(target[i] == stream) {
+                operations.add("Push");
+                stream++;
+            }
+            else {
+                operations.add("Push");
+                operations.add("Pop");
+                stream++;
+                i--; // stay at current target until it's solved
             }
         }
-        if(n > distance) throw new IllegalArgumentException("invalid distance from end");
-
-        prev.next = delete.next;
-
-        return dummy.next;
+        return operations;
     }
 
     public static void main(String[] args) {
 
-        System.out.println("19. Remove Nth Node From End of List");
+        System.out.println("1441. Build an Array With Stack Operations");
 
         // example 1
-        int[] a1 = {1, 2, 3, 4, 5};
-        int d1 = 5;
-        ListNode h1 = buildList(a1);
-        System.out.println("\nList: " + Arrays.toString(a1) + "  n = " + d1);
-        System.out.print("New List: ");
-        printList(removeNthFromEnd(h1, d1));
+        int[] a1 = {1, 3};
+        int n1 = 3;
+        System.out.println("\nTarget: " + Arrays.toString(a1) + " n = " + n1);
+        System.out.println("Stack Operations: " + buildArray(a1, n1));
 
         // example 2
-        int[] a2 = {1};
-        int d2 = 1;
-        ListNode h2 = buildList(a2);
-        System.out.println("\nList: " + Arrays.toString(a2) + "  n = " + d2);
-        System.out.print("New List: ");
-        printList(removeNthFromEnd(h2, d2));
+        int[] a2 = {1, 2};
+        int n2 = 4;
+        System.out.println("\nTarget: " + Arrays.toString(a2) + " n = " + n2);
+        System.out.println("Stack Operations: " + buildArray(a2, n2));
     }
 }
