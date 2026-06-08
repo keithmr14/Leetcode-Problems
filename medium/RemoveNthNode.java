@@ -1,0 +1,59 @@
+package medium;
+
+import utils.ListNode;
+import static utils.ListUtils.*;
+import java.util.Arrays;
+
+public class RemoveNthNode {
+
+    public static ListNode removeNthFromEnd(ListNode head, int n) {
+
+        if (n <= 0) { throw new IllegalArgumentException("Invalid Distance"); }
+
+        ListNode dummy = new ListNode();
+        dummy.next = head;
+        ListNode curr = dummy;
+        ListNode prev = dummy; // node before delete node
+        ListNode delete = dummy;
+
+        int distance = 0;
+        while(curr.next != null) {
+
+            distance++;
+            curr = curr.next;
+
+            if(distance == n) delete = head; // slow pointer
+
+            else if(distance > n) {
+                prev = delete;
+                delete = delete.next;
+            }
+        }
+        if (n > distance) { throw new IllegalArgumentException("Invalid Distance."); }
+
+        prev.next = delete.next;
+
+        return dummy.next;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println("19. Remove Nth Node From End of List");
+
+        // example 1
+        int[] a1 = {1, 2, 3, 4, 5};
+        int d1 = 5;
+        ListNode h1 = buildList(a1);
+        System.out.println("\nList: " + Arrays.toString(a1) + "  n = " + d1);
+        System.out.print("New List: ");
+        printList(removeNthFromEnd(h1, d1));
+
+        // example 2
+        int[] a2 = {1};
+        int d2 = 1;
+        ListNode h2 = buildList(a2);
+        System.out.println("\nList: " + Arrays.toString(a2) + "  n = " + d2);
+        System.out.print("New List: ");
+        printList(removeNthFromEnd(h2, d2));
+    }
+}
