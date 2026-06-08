@@ -19,7 +19,9 @@ public class AddTwoNum {
 
             int sum = l1.val + l2.val + carry;
             int rem = sum % 10; // num at ones place
+            
             curr.next = new ListNode(rem);
+            
             carry = sum / 10; // num at tenth place
 
             l1 = l1.next;
