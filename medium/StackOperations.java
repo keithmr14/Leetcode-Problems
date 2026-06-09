@@ -38,13 +38,13 @@ public class StackOperations {
         // example 1
         int[] a1 = {1, 3};
         int n1 = 3;
-        System.out.println("\nTarget: " + Arrays.toString(a1) + " n = " + n1);
+        System.out.println("\nStack Height: " + n1 + "    Target: " + Arrays.toString(a1));
         System.out.println("Stack Operations: " + buildArray(a1, n1));
 
         // example 2
         int[] a2 = {1, 2};
         int n2 = 4;
-        System.out.println("\nTarget: " + Arrays.toString(a2) + " n = " + n2);
+        System.out.println("\nStack Height: " + n2 + "    Target: " + Arrays.toString(a2));
         System.out.println("Stack Operations: " + buildArray(a2, n2));
     }
 }
