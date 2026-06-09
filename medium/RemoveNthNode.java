@@ -42,18 +42,18 @@ public class RemoveNthNode {
 
         // example 1
         int[] a1 = {1, 2, 3, 4, 5};
-        int d1 = 5;
+        int n1 = 5;
         ListNode h1 = buildList(a1);
-        System.out.println("\nList: " + Arrays.toString(a1) + "  n = " + d1);
+        System.out.println("\nn = " + n1 + "    List: " + Arrays.toString(a1));
         System.out.print("New List: ");
-        printList(removeNthFromEnd(h1, d1));
+        printList(removeNthFromEnd(h1, n1));
 
         // example 2
         int[] a2 = {1};
-        int d2 = 1;
+        int n2 = 1;
         ListNode h2 = buildList(a2);
-        System.out.println("\nList: " + Arrays.toString(a2) + "  n = " + d2);
+        System.out.println("\nn = " + n2 + "    List: " + Arrays.toString(a2));
         System.out.print("New List: ");
-        printList(removeNthFromEnd(h2, d2));
+        printList(removeNthFromEnd(h2, n2));
     }
 }
