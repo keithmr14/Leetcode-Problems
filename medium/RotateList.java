@@ -37,7 +37,7 @@ public class RotateList {
         int[] a1 = {1, 2, 3, 4, 5};
         int k1 = 2;
         ListNode h1 = buildList(a1);
-        System.out.println("\nk = " + k1 + "    " +  Arrays.toString(a1));
+        System.out.println("\nShift Right: " + k1 + "    Array: " +  Arrays.toString(a1));
         System.out.print("Rotated: ");
         printList(rotateRight(h1, k1));
 
@@ -45,7 +45,7 @@ public class RotateList {
         int[] a2 = {0, 1, 2};
         int k2 = 4;
         ListNode h2 = buildList(a2);
-        System.out.println("\nk = " + k2 + "    " +  Arrays.toString(a2));
+        System.out.println("\nShift Right: " + k2 + "    Array: " +  Arrays.toString(a2));
         System.out.print("Rotated: ");
         printList(rotateRight(h2, k2));
     }
