@@ -15,6 +15,26 @@ public class ListUtils {
         return dummy.next;
     }
 
+    public static ListNode[] buildArrayOfList(int[][] arr) {
+
+        ListNode[] listArr = new ListNode[arr.length];
+
+        for (int i = 0; i < arr.length; i++) {
+
+            ListNode dummy = new ListNode();
+            ListNode curr = dummy;
+
+            for(int j = 0; j < arr[i].length; j++) {
+
+                curr.next = new ListNode(arr[i][j]);
+                curr = curr.next;
+            }
+
+            listArr[i] = dummy.next;
+        }
+        return listArr;
+    }
+
     public static void printList(ListNode head) {
 
         System.out.print("[");
