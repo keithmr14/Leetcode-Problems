@@ -6,6 +6,8 @@ public class MaxSubarray1 {
 
     public static long maxTotalValue(int[] nums, int k) {
 
+        if(k < 0) throw new IllegalArgumentException("k must be >= 0");
+
         int max = Integer.MIN_VALUE;
         int min = Integer.MAX_VALUE;
 
