@@ -4,6 +4,8 @@ public class IntToRoman {
 
     public static String intToRoman(int num) {
 
+        if(num < 1 || num > 3999) throw new IllegalArgumentException("integer must greater than 0 and less than 4000");
+
         StringBuilder roman = new StringBuilder();
 
         while(num > 0) { // deduct the number everytime a roman symbol is added
@@ -11,7 +13,7 @@ public class IntToRoman {
             int length = String.valueOf(num).length();
             int leadDigit;
             // calculate roman equivalent based on current place value and leading digit
-            switch(length) { 
+            switch(length) {
                 case 4:
                     roman.append("M");
                     num -= 1000;
