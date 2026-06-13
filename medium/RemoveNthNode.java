@@ -8,7 +8,7 @@ public class RemoveNthNode {
 
     public static ListNode removeNthFromEnd(ListNode head, int n) {
 
-        if(n <= 0) throw new IllegalArgumentException("invalid distance from end");
+        if(n <= 0) throw new IllegalArgumentException("invalid node position from end");
 
         ListNode dummy = new ListNode();
         dummy.next = head;
@@ -29,7 +29,7 @@ public class RemoveNthNode {
                 delete = delete.next;
             }
         }
-        if(n > distance) throw new IllegalArgumentException("invalid distance from end");
+        if(n > distance) throw new IllegalArgumentException("invalid node position from end");
 
         prev.next = delete.next;
 
