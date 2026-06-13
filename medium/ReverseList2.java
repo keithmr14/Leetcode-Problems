@@ -13,8 +13,8 @@ public class ReverseList2 {
         ListNode dummy = new ListNode();
         dummy.next = head;
         ListNode curr = head;
-        ListNode nodeInRange = null; // pointer for left, right, and in between
-        ListNode beforeleft = dummy; // one node before left when left = 1 or update this
+        ListNode nodeInRange = null; // pointer for left, right, and in-between
+        ListNode beforeleft = dummy; // one node before left when left = 1, or update this
 
         for(int i = 1; i <= left; i++) { // stop on or before left's node
 
@@ -31,8 +31,7 @@ public class ReverseList2 {
         if (nodeInRange == null) throw new IllegalArgumentException("left node not found");
 
         ListNode tail = nodeInRange; // tail of the reverse range
-        ListNode prev = tail; // when reversing node, point those node to prev
-
+        ListNode prev = tail; // when reversing node, point those nodes to prev
         // tail doesn't have a node to point to yet, so start reversing at the next of left's node
         nodeInRange = nodeInRange.next;
         left++;
@@ -41,13 +40,13 @@ public class ReverseList2 {
 
             if(nodeInRange == null) throw new IllegalArgumentException("right node not found");
 
-            if(left == right) { // reverse the last in range
+            if(left == right) { // reverse the right's node
                 ListNode afterRight = nodeInRange.next;
                 nodeInRange.next = prev;
                 beforeleft.next = nodeInRange;
                 tail.next = afterRight;
 
-            } else { // reverse in between nodes
+            } else { // reverse in-between nodes
                 ListNode next = nodeInRange.next;
                 nodeInRange.next = prev;
                 prev = nodeInRange;
