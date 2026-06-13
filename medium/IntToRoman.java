@@ -12,7 +12,7 @@ public class IntToRoman {
 
             int length = String.valueOf(num).length();
             int leadDigit;
-            // calculate roman equivalent based on current place value and leading digit
+            // calculate the roman equivalent based on current place value and leading digit
             switch(length) {
                 case 4:
                     roman.append("M");
