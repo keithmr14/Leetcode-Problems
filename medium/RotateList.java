@@ -48,5 +48,13 @@ public class RotateList {
         System.out.println("\nShift Right: " + k2 + "    Array: " +  Arrays.toString(a2));
         System.out.print("Rotated: ");
         printList(rotateRight(h2, k2));
+
+        // example 3
+        int[] a3 = {};
+        int k3 = 0;
+        ListNode h3 = buildList(a3);
+        System.out.println("\nShift Right: " + k3 + "    Array: " +  Arrays.toString(a3));
+        System.out.print("Rotated: ");
+        printList(rotateRight(h3, k3));
     }
 }
