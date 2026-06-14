@@ -29,7 +29,7 @@ public class ReversePolish {
             }
             else {
                 try {
-                    int num = Integer.parseInt(str);
+                    Integer.parseInt(str);
                     stack.push(str);
 
                 } catch(NumberFormatException e) {
