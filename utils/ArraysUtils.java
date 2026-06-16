@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class ArrayUtils {
 
-    public static void print2dIntOneLine(int[][] arrays) {
+    public static void print2dPrimOneLine(int[][] arrays) {
 
         int n = arrays.length;
 
@@ -15,9 +15,16 @@ public class ArrayUtils {
         }
     }
 
-    public static void print2dIntMultiLine(int[][] arrays) {
+    public static void print2dPrimMultiLine(int[][] arrays) {
 
         for (int[] array : arrays)
+
+            System.out.println(Arrays.toString(array));
+    }
+
+    public static void print2dPrimMultiLine(char[][] arrays) {
+
+        for (char[] array : arrays)
 
             System.out.println(Arrays.toString(array));
     }
