@@ -29,30 +29,10 @@ public class ArrayUtils {
             System.out.println(Arrays.toString(array));
     }
 
-    public static boolean checkNonIncreasing2Array(int[] a1, int[] a2) {
+    public static boolean isNonIncreasingArray(int[] arr) {
 
-        boolean first = true;
-        int lastNum = -1;
-
-        for(int num : a1) {
-            if(!first) {
-                if(num > lastNum) return false;
-            }
-            else first = false;
-
-            lastNum = num;
-        }
-
-        first = true;
-        lastNum = -1;
-
-        for(int num : a2) {
-            if(!first) {
-                if(num > lastNum) return false;
-            }
-            else first = false;
-
-            lastNum = num;
+        for (int i = 1; i < arr.length; i++) {
+            if(arr[i] > arr[i - 1]) return false;
         }
 
         return true;
