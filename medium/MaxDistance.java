@@ -12,7 +12,7 @@ public class MaxDistance {
         int j = 1;
 
         // remove this to reduce runtime in leetCode, but add it outside leetCode
-        if(checkNonIncreasing2Array(nums1, nums2))
+        if(!isNonIncreasingArray(nums1) || !isNonIncreasingArray(nums2))
             throw new IllegalArgumentException("both arrays must be non-increasing");
 
         while(maxDist < nums2.length - 1 - i && i < nums1.length && j < nums2.length) {
