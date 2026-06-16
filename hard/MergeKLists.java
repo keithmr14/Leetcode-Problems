@@ -8,7 +8,7 @@ public class MergeKLists {
 
     public static ListNode mergeKLists(ListNode[] lists) {
 
-        ListNode dummy = new ListNode(0);
+        ListNode dummy = new ListNode();
         ListNode curr = dummy;
 
         int min = findMinHeadIndex(lists);
@@ -58,14 +58,14 @@ public class MergeKLists {
         // example 1
         int[][] a1 = {{1, 4, 5}, {1, 3, 4}, {2, 6}};
         System.out.print("\nArray of List: ");
-        print2dIntOneLine(a1);
+        print2dPrimOneLine(a1);
         System.out.print("\nMerged List: ");
         printList(mergeKLists(buildArrayOfList(a1)));
 
         // example 2
         int[][] a2 = {{}, {}};
         System.out.print("\nArray of List: ");
-        print2dIntOneLine(a2);
+        print2dPrimOneLine(a2);
         System.out.print("\nMerged List: ");
         printList(mergeKLists(buildArrayOfList(a2)));
     }
