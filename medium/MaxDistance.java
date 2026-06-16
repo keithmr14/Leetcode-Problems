@@ -1,7 +1,7 @@
 package medium;
 
 import java.util.Arrays;
-import static utils.ArrayUtils.checkNonIncreasing2Array;
+import static utils.ArrayUtils.*;
 
 public class MaxDistance {
 
