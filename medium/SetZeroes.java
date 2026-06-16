@@ -1,7 +1,7 @@
 package medium;
 
 import java.util.*;
-import static utils.ArrayUtils.print2dIntMultiLine;
+import static utils.ArrayUtils.*;
 
 public class SetZeroes {
 
@@ -33,9 +33,8 @@ public class SetZeroes {
                 matrix[i][col] = 0;
             }
         }
-
         // remove this to reduce runtime in leetCode or add it to show result
-        print2dIntMultiLine(matrix);
+        print2dPrimMultiLine(matrix);
     }
 
     public static void main(String[] args) {
@@ -45,14 +44,14 @@ public class SetZeroes {
         // example 1
         int[][] m1 = {{1, 1, 1}, {1, 0, 1}, {1, 1, 1}};
         System.out.println("\nMatrix:");
-        print2dIntMultiLine(m1);
+        print2dPrimMultiLine(m1);
         System.out.println("\nSet Zeroes:");
         setZeroes(m1);
 
         // example 2
         int[][] m2 = {{0, 1, 2, 0}, {3, 4, 5, 2}, {1, 3, 1, 5}};
         System.out.println("\nMatrix:");
-        print2dIntMultiLine(m2);
+        print2dPrimMultiLine(m2);
         System.out.println("\nSet Zeroes:");
         setZeroes(m2);
     }
