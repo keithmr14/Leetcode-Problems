@@ -9,7 +9,7 @@ public class ArrayUtils {
         int n = arrays.length;
 
         for(int i = 0; i < n; i++) {
-            
+
             System.out.print(Arrays.toString(arrays[i]));
             if(i != n - 1) System.out.print(", ");
         }
@@ -17,13 +17,9 @@ public class ArrayUtils {
 
     public static void print2dIntMultiLine(int[][] arrays) {
 
-        int n = arrays.length;
+        for (int[] array : arrays)
 
-        for(int i = 0; i < n; i++) {
-            
-            System.out.print(Arrays.toString(arrays[i]));
-            if(i != n - 1) System.out.print("\n");
-        }
+            System.out.println(Arrays.toString(array));
     }
 
     public static boolean checkNonIncreasing2Array(int[] a1, int[] a2) {
