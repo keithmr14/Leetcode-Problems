@@ -11,6 +11,7 @@ public class RotatedDigits {
 
         if(n >= memo.length) {
 
+            if(n == Integer.MAX_VALUE) throw new IllegalArgumentException("method can only handle n = Integer.MAX_VALUE - 1");            
             int newSize = n + 1;
             int[] newMemo = new int[newSize];
             System.arraycopy(memo, 0, newMemo, 0, memo.length);
