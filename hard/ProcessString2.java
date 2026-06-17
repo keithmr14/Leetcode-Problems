@@ -2,7 +2,7 @@ package hard;
 
 public class ProcessString2 {
 
-    public char processStr(String s, long k) {
+    public static char processStr(String s, long k) {
 
         if(k < 0) throw new IllegalArgumentException("k cannot be negative");
 
@@ -45,5 +45,20 @@ public class ProcessString2 {
         }
 
         return '.';
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println("3614. Process String with Special Operations II");
+
+        String s1 = "cd%#*#";
+        long k1 = 3;
+        System.out.println("\nk: " + k1 + "    String: " + s1);
+        System.out.println("Character at k: " + processStr(s1, k1));
+
+        String s2 = "a#b%*";
+        long k2 = 1;
+        System.out.println("\nk: " + k2 + "    String: " + s2);
+        System.out.println("Character at k: " + processStr(s2, k2));
     }
 }
