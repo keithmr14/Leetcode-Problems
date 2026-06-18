@@ -28,14 +28,14 @@ class RemoveElem {
         int[] a1 = {0, 1, 0, 2, 0, 3};
         int t1 = 0;
         System.out.println("\nArray: " + Arrays.toString(a1));
-        System.out.println("Remove Element: " + t1);;
+        System.out.println("Remove Element: " + t1);
         System.out.println("Number of Elements Left: " + removeElement(a1, t1));
 
         // example 2
         int[] a2 = {0, 1, 2, 2, 3, 0, 4, 2};
         int t2 = 2;
         System.out.println("\nArray: " + Arrays.toString(a2));
-        System.out.println("Remove Element: " + t2);;
+        System.out.println("Remove Element: " + t2);
         System.out.println("Number of Elements Left: " + removeElement(a2, t2));
     }
 }
