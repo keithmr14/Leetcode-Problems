@@ -32,7 +32,6 @@ public class IntToRoman {
                     else if(leadDigit == 4){ roman.append("XL"); num -= 40; }
                     else { roman.append("X"); num -= 10; }
                     break;
-
                 case 1:
                     if(num == 9) { roman.append("IX"); num -= 9; }
                     else if(num >= 5) { roman.append("V"); num -= 5; }
