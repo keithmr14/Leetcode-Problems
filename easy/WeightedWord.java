@@ -6,32 +6,44 @@ public class WeightedWord {
 
     public static String mapWordWeights(String[] words, int[] weights) {
 
-        if(weights.length != 26) throw new IllegalArgumentException("number of weights isn't 26");
-        if(words.length == 0) throw new IllegalArgumentException("no words found");
+        if(weights.length != 26) throw new IllegalArgumentException("weights length should be 26, not " + weights.length);
+        if(words.length == 0) throw new IllegalArgumentException("words array is empty");
 
         StringBuilder mappedWord = new StringBuilder();
 
         for(String word : words) {
- 
-            int weight = 0;
 
-            for(int i = 0; i < word.length(); i++) {
-
-                char letter = word.charAt(i);
-
-                if(letter < 'a' || letter > 'z') throw new IllegalArgumentException("non \"lower case letter\" found");
-
-                weight += weights[letter - 'a'];
-            }
-
-            if(weight < 0) throw new IllegalArgumentException("word weight results in invalid character");
-
-            weight %= 26;
-            int revASCII = 'z' - weight;
+            int wordWeight = getWordWeight(weights, word);
+            int revASCII = 'z' - wordWeight;
             mappedWord.append((char) revASCII);
         }
 
         return mappedWord.toString();
+    }
+
+    private static int getWordWeight(int[] weights, String word) {
+
+        int wordWeight = 0;
+
+        for(int i = 0; i < word.length(); i++) {
+
+            char letter = word.charAt(i);
+
+            if(letter < 'a' || letter > 'z')
+                throw new IllegalArgumentException("character '" + letter + "' was found in word \"" + word + "\"");
+
+            try {
+                wordWeight = Math.addExact(weights[letter - 'a'], wordWeight);
+            }
+            catch(ArithmeticException e) {
+                throw new IllegalArgumentException("weight of word \"" + word + "\" causes an integer overflow"); }
+        }
+
+        if(wordWeight < 0) throw new IllegalArgumentException("weight of word \"" + word + "\" is negative " + wordWeight);
+
+        wordWeight %= 26;
+
+        return wordWeight;
     }
 
     public static void main(String[] args) {
