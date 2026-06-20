@@ -59,14 +59,14 @@ public class MergeKLists {
         int[][] a1 = {{1, 4, 5}, {1, 3, 4}, {2, 6}};
         System.out.print("\nArray of List: ");
         print2dPrimOneLine(a1);
-        System.out.print("\nMerged List: ");
+        System.out.print("Merged List: ");
         printList(mergeKLists(buildArrayOfList(a1)));
 
         // example 2
         int[][] a2 = {{}, {}};
         System.out.print("\nArray of List: ");
         print2dPrimOneLine(a2);
-        System.out.print("\nMerged List: ");
+        System.out.print("Merged List: ");
         printList(mergeKLists(buildArrayOfList(a2)));
     }
 }
