@@ -13,6 +13,7 @@ public class ArrayUtils {
             System.out.print(Arrays.toString(arrays[i]));
             if(i != n - 1) System.out.print(", ");
         }
+        System.out.println();
     }
 
     public static void print2dPrimMultiLine(int[][] arrays) {
