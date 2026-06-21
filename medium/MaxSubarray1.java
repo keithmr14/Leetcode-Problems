@@ -2,11 +2,11 @@ package medium;
 
 import java.util.Arrays;
 
-public class MaxSubarray1 {
+public class TotalSubarray1 {
 
     public static long maxTotalValue(int[] nums, int k) {
 
-        if(k < 0) throw new IllegalArgumentException("k must be >= 0");
+        if(k < 1) throw new IllegalArgumentException("number of subarrays k must be >= 1");
 
         int max = Integer.MIN_VALUE;
         int min = Integer.MAX_VALUE;
