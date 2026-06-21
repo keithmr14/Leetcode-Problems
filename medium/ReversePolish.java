@@ -40,7 +40,6 @@ public class ReversePolish {
 
                 stack.push(str);
             }
-
         }
         return Integer.parseInt(stack.peek());
     }
