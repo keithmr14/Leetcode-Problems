@@ -2,31 +2,37 @@ package medium;
 
 import java.util.*;
 
-public class PrefixArray {
+public class PrefixCommonArray {
 
     public static int[] findThePrefixCommonArray(int[] A, int[] B) {
 
-        if(A.length != B.length) throw new IllegalArgumentException("both array length must be equal");
+        if(A.length != B.length) throw new IllegalArgumentException("both arrays must be equal length");
 
         int n = A.length;
         int common = 0;
         int[] prefixes = new int[n];
         Set<Integer> prevNumsA = new HashSet<>(n);
         Set<Integer> prevNumsB = new HashSet<>(n);
-        IllegalArgumentException invalid = new IllegalArgumentException("invalid permutation");
 
         for(int i = 0; i < n; i++) {
 
             int a = A[i];
             int b = B[i];
 
-            if(a == 0 || b == 0 || a > n || b > n) throw invalid;
+            if(a < 1 || a > n)
+                throw new IllegalArgumentException("invalid permutation " + a + ", accepts only 1 to n (arrays' length)");
+            if(b < 1 || b > n)
+                throw new IllegalArgumentException("invalid permutation " + b + ", accepts only 1 to n (arrays' length)");
 
-            if(prevNumsA.contains(a)) throw invalid;
+            if(prevNumsA.contains(a))
+                throw new IllegalArgumentException("integer " + a + " appears twice in array A, invalid as permutation");
+
             if(prevNumsB.contains(a)) common++;
             else prevNumsA.add(a);
 
-            if(prevNumsB.contains(b)) throw invalid;
+            if(prevNumsB.contains(b))
+                throw new IllegalArgumentException("integer " + b + " appears twice in array B, invalid as permutation");
+
             if(prevNumsA.contains(b)) common++;
             else prevNumsB.add(b);
 
