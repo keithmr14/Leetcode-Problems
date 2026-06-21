@@ -2,28 +2,28 @@ package medium;
 
 public class RotatedDigits {
 
-    private static int[] memo = new int[10];
+    private static int[] memo = new int[11];
     private static int maxN = 0;
 
     public static int rotatedDigits(int n) {
 
-        if(n < 1) throw new IllegalArgumentException("n must be >= 1");
+        if(n < 1 || n == Integer.MAX_VALUE)
+            throw new IllegalArgumentException("n must be greater than 0 and less than Integer.MAX_VALUE");
 
         if(n >= memo.length) {
 
-            if(n == Integer.MAX_VALUE) throw new IllegalArgumentException("method can only handle n = Integer.MAX_VALUE - 1");            
             int newSize = n + 1;
             int[] newMemo = new int[newSize];
             System.arraycopy(memo, 0, newMemo, 0, memo.length);
             memo = newMemo;
         }
 
-        if (n > maxN) {
+        if(n > maxN) {
             int good = memo[maxN]; // 1-indexed
 
-            for (int currNum = maxN + 1; currNum <= n; currNum++) {
+            for(int currNum = maxN + 1; currNum <= n; currNum++) {
 
-                if (isGoodNumber(currNum)) good++;
+                if(isGoodNumber(currNum)) good++;
 
                 memo[currNum] = good;
             }
@@ -37,12 +37,12 @@ public class RotatedDigits {
 
         boolean valid = false;
 
-        while (num >= 1) {
+        while(num >= 1) {
             int lastDig = num % 10;
 
-            if (lastDig == 2 || lastDig == 5 || lastDig == 6 || lastDig == 9) valid = true;
+            if(lastDig == 2 || lastDig == 5 || lastDig == 6 || lastDig == 9) valid = true;
 
-            else if (lastDig == 3 || lastDig == 4 || lastDig == 7) return false;
+            else if(lastDig == 3 || lastDig == 4 || lastDig == 7) return false;
 
             num /= 10; // 1 and 0 are valid but doesn't change so we need to check for more digit
         }
