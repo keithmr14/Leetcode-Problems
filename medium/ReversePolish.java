@@ -18,23 +18,27 @@ public class ReversePolish {
                 int op2 = Integer.parseInt(stack.pop());
                 int op1 = Integer.parseInt(stack.pop());
 
-                int res = switch(str) {
-                    case "+" -> op1 + op2;
-                    case "-" -> op1 - op2;
-                    case "*" -> op1 * op2;
-                    case "/" -> op1 / op2;
-                    default -> 0;
-                };
-                stack.push(String.valueOf(res));
+                try {
+                    int res = switch(str) {
+                        case "+" -> Math.addExact(op1, op2);
+                        case "-" -> Math.subtractExact(op1, op2);
+                        case "*" -> Math.multiplyExact(op1, op2);
+                        case "/" -> Math.divideExact(op1, op2);
+                        default -> 0;
+                    };
+                    stack.push(String.valueOf(res));
+                }
+                catch(ArithmeticException e) {
+                    throw new IllegalArgumentException(op1 + " " + str + " " + op2 + " causes an exception: " + e.getMessage()); }
             }
             else {
                 try {
                     Integer.parseInt(str);
-                    stack.push(str);
-
-                } catch(NumberFormatException e) {
-                    throw new IllegalArgumentException("token must only be an integer, +, -, *, or /");
                 }
+                catch(NumberFormatException e) {
+                    throw new IllegalArgumentException("token '" + str + "' must be an integer, +, -, *, or /"); }
+
+                stack.push(str);
             }
 
         }
