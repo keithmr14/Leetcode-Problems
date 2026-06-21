@@ -1,6 +1,6 @@
 package medium;
 
-public class ProcessString {
+public class ProcessString1 {
 
     public static String processStr(String s) {
 
@@ -17,9 +17,10 @@ public class ProcessString {
             }
             else if(c == '*') {
 
-                if(lastIndex == -1) continue;
-                sb.deleteCharAt(lastIndex);
-                lastIndex--;
+                if(lastIndex != -1) {
+                    sb.deleteCharAt(lastIndex);
+                    lastIndex--;
+                }
             }
             else if (c == '#') {
 
@@ -29,7 +30,7 @@ public class ProcessString {
             }
             else if(c == '%') sb.reverse();
 
-            else throw new IllegalArgumentException("invalid character found");
+            else throw new IllegalArgumentException("invalid character '" + c + "' found");
         }
 
         return sb.toString();
