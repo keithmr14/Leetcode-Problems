@@ -8,7 +8,8 @@ public class RotateList {
 
     public static ListNode rotateRight(ListNode head, int k) {
 
-        if(k < 0) throw new IllegalArgumentException("k is invalid");
+        if(k < 0) throw new IllegalArgumentException(
+                "k can't be negative when shifting the list to the right by k");
 
         if(head == null || head.next == null || k == 0) return head;
 
@@ -37,7 +38,8 @@ public class RotateList {
         int[] a1 = {1, 2, 3, 4, 5};
         int k1 = 2;
         ListNode h1 = buildList(a1);
-        System.out.println("\nShift Right: " + k1 + "    Array: " +  Arrays.toString(a1));
+        System.out.println("\nShift Right: " + k1);
+        System.out.println("Array: " +  Arrays.toString(a1));
         System.out.print("Rotated: ");
         printList(rotateRight(h1, k1));
 
@@ -45,7 +47,8 @@ public class RotateList {
         int[] a2 = {0, 1, 2};
         int k2 = 4;
         ListNode h2 = buildList(a2);
-        System.out.println("\nShift Right: " + k2 + "    Array: " +  Arrays.toString(a2));
+        System.out.println("\nShift Right: " + k2);
+        System.out.println("Array: " +  Arrays.toString(a2));
         System.out.print("Rotated: ");
         printList(rotateRight(h2, k2));
 
@@ -53,7 +56,8 @@ public class RotateList {
         int[] a3 = {};
         int k3 = 0;
         ListNode h3 = buildList(a3);
-        System.out.println("\nShift Right: " + k3 + "    Array: " +  Arrays.toString(a3));
+        System.out.println("\nShift Right: " + k3);
+        System.out.println("Array: " +  Arrays.toString(a3));
         System.out.print("Rotated: ");
         printList(rotateRight(h3, k3));
     }
