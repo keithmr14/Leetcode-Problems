@@ -8,7 +8,7 @@ public class RemoveNthNode {
 
     public static ListNode removeNthFromEnd(ListNode head, int n) {
 
-        if(n <= 0) throw new IllegalArgumentException("invalid node position from end");
+        if(n <= 0) throw new IllegalArgumentException("n can't be less than 1");
 
         ListNode dummy = new ListNode();
         dummy.next = head;
@@ -29,7 +29,8 @@ public class RemoveNthNode {
                 delete = delete.next;
             }
         }
-        if(n > distance) throw new IllegalArgumentException("invalid node position from end");
+        if(n > distance) throw new IllegalArgumentException(
+                "n (" + n + ") can't be greater than list length (" + distance + ")");
 
         prev.next = delete.next;
 
@@ -44,7 +45,8 @@ public class RemoveNthNode {
         int[] a1 = {1, 2, 3, 4, 5};
         int n1 = 5;
         ListNode h1 = buildList(a1);
-        System.out.println("\nn = " + n1 + "    List: " + Arrays.toString(a1));
+        System.out.println("\nn = " + n1);
+        System.out.println("List: " + Arrays.toString(a1));
         System.out.print("New List: ");
         printList(removeNthFromEnd(h1, n1));
 
@@ -52,7 +54,8 @@ public class RemoveNthNode {
         int[] a2 = {1};
         int n2 = 1;
         ListNode h2 = buildList(a2);
-        System.out.println("\nn = " + n2 + "    List: " + Arrays.toString(a2));
+        System.out.println("\nn = " + n2);
+        System.out.println("List: " + Arrays.toString(a2));
         System.out.print("New List: ");
         printList(removeNthFromEnd(h2, n2));
     }
