@@ -6,7 +6,8 @@ public class RotateBox {
 
     public static char[][] rotateTheBox(char[][] boxGrid) {
 
-        if(boxGrid.length == 0) throw new IllegalArgumentException("matrix is null");
+        if(boxGrid.length == 0) throw new IllegalArgumentException("the matrix is null");
+        if(boxGrid[0].length == 0) throw new IllegalArgumentException("the top row has no characters");
 
         int rows = boxGrid.length;
         int cols = boxGrid[0].length;
@@ -14,27 +15,30 @@ public class RotateBox {
         // move falling characters to the right first before rotating
         for(int i = 0; i < rows; i++) {
 
-            if(boxGrid[i].length != cols) throw new IllegalArgumentException("the matrix have different row lengths");
-            if(boxGrid[i].length == 0) throw new IllegalArgumentException("a row was empty: width of 0");
+            if(boxGrid[i].length != cols)
+                throw new IllegalArgumentException("the matrix have different row lengths");
 
             int fallAt = -1;
 
             for(int j = cols - 1; j >= 0; j--) {
 
-                if(boxGrid[i][j] == '.') {
+                char c = boxGrid[i][j];
+
+                if(c == '.') {
                     if(fallAt == -1) fallAt = j;
                 }
-                else if(boxGrid[i][j] == '*') {
+                else if(c == '*') {
                     fallAt = -1;
                 }
-                else if(boxGrid[i][j] == '#') {
+                else if(c == '#') {
                     if(fallAt != -1) {
                         boxGrid[i][j] = '.';
                         boxGrid[i][fallAt] = '#';
                         fallAt--;
                     }
                 }
-                else throw new IllegalArgumentException("invalid character found");
+                else throw new IllegalArgumentException(
+                        "invalid character '" + c + "' found at index (" + i + ", " + j + ")");
             }
         }
 
