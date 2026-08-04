@@ -43,8 +43,8 @@ public class RotatedDigits {
             if(lastDig == 2 || lastDig == 5 || lastDig == 6 || lastDig == 9) valid = true;
 
             else if(lastDig == 3 || lastDig == 4 || lastDig == 7) return false;
-
-            num /= 10; // 1 and 0 are valid but doesn't change so we need to check for more digit
+            // 1 and 0 are valid but doesn't change so we need to check for more digit
+            num /= 10;
         }
         return valid;
     }
