@@ -8,7 +8,7 @@ public class PartitionPivot {
     public static int[] pivotArray(int[] nums, int pivot) {
 
         ListNode dummy = new ListNode();
-        // starts creating left of pivot and pivot at the start
+        // starts creating left of pivot and pivot, at the start
         ListNode maxLowerRange = dummy;
         ListNode pivotEnd = new ListNode();
         boolean foundPivot = false;
@@ -51,7 +51,7 @@ public class PartitionPivot {
         }
         if(!foundPivot) maxLowerRange.next = minHigherRange;
         else pivotEnd.next = minHigherRange;
-
+        
         for (int i = 0; dummy.next != null; i++) {
             nums[i] = dummy.next.val;
             dummy = dummy.next;
@@ -72,7 +72,7 @@ public class PartitionPivot {
 
         // example 2
         int[] a2 = {4, 0, 4, 5, -11};
-        int p2 = 5;
+        int p2 = 3;
         System.out.println("\nArray: " + Arrays.toString(a2));
         System.out.println("Pivot: " + p2);
         System.out.println("Partition: " + Arrays.toString(pivotArray(a2, p2)));
