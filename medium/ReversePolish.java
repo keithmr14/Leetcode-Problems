@@ -28,8 +28,8 @@ public class ReversePolish {
                     };
                     stack.push(String.valueOf(res));
                 }
-                catch(ArithmeticException e) {
-                    throw new IllegalArgumentException(op1 + " " + str + " " + op2 + " causes an exception: " + e.getMessage()); }
+                catch(ArithmeticException e) { throw new IllegalArgumentException(
+                        "\"" + op1 + " " + str + " " + op2 + "\" causes an exception: " + e.getMessage()); }
             }
             else {
                 try {
