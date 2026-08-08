@@ -9,11 +9,14 @@ public class ReversePolish {
 
         Stack<String> stack = new Stack<>();
 
-        for(String str : tokens) {
+        for(int i = 0; i < tokens.length; i++) {
 
-            if(str == null) throw new IllegalArgumentException("a token is empty");
+            String str = tokens[i];
 
             if(str.equals("+") || str.equals("-") || str.equals("*") || str.equals("/")) {
+
+                if(stack.size() < 2) throw new IllegalStateException(
+                        "operator at index " + i + " does not have enough operands to work with");
 
                 int op2 = Integer.parseInt(stack.pop());
                 int op1 = Integer.parseInt(stack.pop());
@@ -28,15 +31,15 @@ public class ReversePolish {
                     };
                     stack.push(String.valueOf(res));
                 }
-                catch(ArithmeticException e) { throw new IllegalArgumentException(
-                        "\"" + op1 + " " + str + " " + op2 + "\" causes an exception: " + e.getMessage()); }
+                catch(ArithmeticException e) { throw new ArithmeticException(
+                        "exception from " + op1 + " " + str + " " + op2 + " due to " + e.getMessage()); }
             }
             else {
                 try {
                     Integer.parseInt(str);
                 }
                 catch(NumberFormatException e) {
-                    throw new IllegalArgumentException("token '" + str + "' must be an integer, +, -, *, or /"); }
+                    throw new NumberFormatException("token '" + str + "' must be an integer, +, -, *, or /"); }
 
                 stack.push(str);
             }
