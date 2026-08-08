@@ -11,7 +11,8 @@ public class SortColors {
 
         for(int num : nums) {
 
-            if(num < 0 || num > 2) throw new IllegalArgumentException(num + " is an invalid color id");
+            if(num < 0 || num > 2) throw new IllegalArgumentException("color id " + num + " must be 0, 1, or 2");
+
             colors[num]++;
         }
 
