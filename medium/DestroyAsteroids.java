@@ -6,8 +6,9 @@ public class DestroyAsteroids {
 
     public static boolean asteroidsDestroyed(int mass, int[] asteroids) {
 
-        IllegalArgumentException invalidMass = new IllegalArgumentException("mass can't be less than 1");
-        
+        IllegalArgumentException invalidMass = new IllegalArgumentException(
+                "mass " + mass + " must be greater or equal to 1");
+
         if(mass < 1) throw invalidMass;
 
         long earthMass = mass;
@@ -18,9 +19,9 @@ public class DestroyAsteroids {
             astLeft = 0; // non absorbed asteroids in this current loop
 
             for(int i = 0; i < n; i++) {
-                
+
                 int astMass = asteroids[i];
-                
+
                 if(astMass < 1) throw invalidMass;
 
                 if(earthMass >= astMass) earthMass += astMass;
