@@ -4,8 +4,10 @@ public class ClockAngle {
 
     public static double angleClock(int hour, int minutes) {
 
-        if(hour < 1 || hour > 12) throw new IllegalArgumentException("hours must be between 1 and 12");
-        if(minutes < 0 || minutes > 59) throw new IllegalArgumentException("minutes must be between 0 and 59");
+        if(hour < 1 || hour > 12) throw new IllegalArgumentException(
+                "hour " + hour + " must be between 1 and 12");
+        if(minutes < 0 || minutes > 59) throw new IllegalArgumentException(
+                "minute " + minutes + " must be between 0 and 59");
 
         if(hour == 12) hour = 0;
 
