@@ -4,7 +4,8 @@ public class IntToRoman {
 
     public static String intToRoman(int num) {
 
-        if(num < 1 || num > 3999) throw new IllegalArgumentException("integer must greater than 0 and less than 4000");
+        if(num < 1 || num > 3999) throw new IllegalArgumentException(
+                "integer " + num + " must be greater than 0 and less than 4000");
 
         StringBuilder roman = new StringBuilder();
 
