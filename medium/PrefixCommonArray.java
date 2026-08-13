@@ -11,7 +11,7 @@ public class PrefixCommonArray {
         int n = A.length;
 
         if(n == 0) throw new IllegalArgumentException("array cannot be empty");
-        
+
         int common = 0;
         int[] prefixes = new int[n];
         Set<Integer> prevNumsA = new HashSet<>(n);
@@ -23,9 +23,9 @@ public class PrefixCommonArray {
             int b = B[i];
 
             if(a < 1 || a > n)
-                throw new IllegalArgumentException("invalid integer " + a + " in array 1, accepts only 1 to n (arrays' length)");
+                throw new IllegalArgumentException("integer " + a + " in array 1 must be between 1 and n (array's length)");
             if(b < 1 || b > n)
-                throw new IllegalArgumentException("invalid integer " + b + " in array 2, accepts only 1 to n (arrays' length)");
+                throw new IllegalArgumentException("integer " + b + " in array 2 must be between 1 and n (array's length)");
 
             if(prevNumsA.contains(a))
                 throw new IllegalArgumentException("integer " + a + " appears twice in array 1, invalid as permutation");
