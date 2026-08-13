@@ -9,6 +9,9 @@ public class PrefixCommonArray {
         if(A.length != B.length) throw new IllegalArgumentException("both arrays must be equal length");
 
         int n = A.length;
+
+        if(n == 0) throw new IllegalArgumentException("array cannot be empty");
+        
         int common = 0;
         int[] prefixes = new int[n];
         Set<Integer> prevNumsA = new HashSet<>(n);
