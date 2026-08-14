@@ -16,7 +16,7 @@ public class ReversePolish {
             if(str.equals("+") || str.equals("-") || str.equals("*") || str.equals("/")) {
 
                 if(stack.size() < 2) throw new IllegalStateException(
-                        "operator at index " + i + " does not have enough operands to work with");
+                        "operator at index " + i + " doesn't have enough operands to work with");
 
                 int op2 = Integer.parseInt(stack.pop());
                 int op1 = Integer.parseInt(stack.pop());
