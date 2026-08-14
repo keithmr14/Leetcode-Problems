@@ -10,7 +10,7 @@ public class PrefixCommonArray {
 
         int n = A.length;
 
-        if(n == 0) throw new IllegalArgumentException("array cannot be empty");
+        if(n == 0) throw new IllegalArgumentException("array mustn't be empty");
 
         int common = 0;
         int[] prefixes = new int[n];
