@@ -6,7 +6,7 @@ public class PrefixCommonArray {
 
     public static int[] findThePrefixCommonArray(int[] A, int[] B) {
 
-        if(A.length != B.length) throw new IllegalArgumentException("both arrays must be equal length");
+        if(A.length != B.length) throw new IllegalArgumentException("both arrays must be of equal length");
 
         int n = A.length;
 
