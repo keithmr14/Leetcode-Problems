@@ -6,8 +6,8 @@ public class RotateBox {
 
     public static char[][] rotateTheBox(char[][] boxGrid) {
 
-        if(boxGrid.length == 0) throw new IllegalArgumentException("the matrix is null");
-        if(boxGrid[0].length == 0) throw new IllegalArgumentException("the top row has no characters");
+        if(boxGrid.length == 0) throw new IllegalArgumentException("matrix mustn't be empty");
+        if(boxGrid[0].length == 0) throw new IllegalArgumentException("matrix row mustn't be empty");
 
         int rows = boxGrid.length;
         int cols = boxGrid[0].length;
@@ -16,7 +16,7 @@ public class RotateBox {
         for(int i = 0; i < rows; i++) {
 
             if(boxGrid[i].length != cols)
-                throw new IllegalArgumentException("the matrix have different row lengths");
+                throw new IllegalArgumentException("matrix must have the same row lengths");
 
             int fallAt = -1;
 
@@ -38,7 +38,7 @@ public class RotateBox {
                     }
                 }
                 else throw new IllegalArgumentException(
-                        "invalid character '" + c + "' found at index (" + i + ", " + j + ")");
+                        "character '" + c + "' at index (" + i + ", " + j + ") must be ., *, or #");
             }
         }
 
