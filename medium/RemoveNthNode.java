@@ -8,7 +8,7 @@ public class RemoveNthNode {
 
     public static ListNode removeNthFromEnd(ListNode head, int n) {
 
-        if(n <= 0) throw new IllegalArgumentException("n can't be less than 1");
+            if(n <= 0) throw new IllegalArgumentException("n of " + n + " can't be less than 1");
 
         ListNode dummy = new ListNode();
         dummy.next = head;
@@ -30,7 +30,7 @@ public class RemoveNthNode {
             }
         }
         if(n > distance) throw new IllegalArgumentException(
-                "n (" + n + ") can't be greater than list length (" + distance + ")");
+                "n of " + n + " must be between 1 and list length " + distance);
 
         prev.next = delete.next;
 
