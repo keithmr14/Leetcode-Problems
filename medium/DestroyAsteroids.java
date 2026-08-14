@@ -7,7 +7,7 @@ public class DestroyAsteroids {
     public static boolean asteroidsDestroyed(int mass, int[] asteroids) {
 
         IllegalArgumentException invalidMass = new IllegalArgumentException(
-                "mass " + mass + " must be greater or equal to 1");
+                "mass " + mass + " must be greater than or equal to 1");
 
         if(mass < 1) throw invalidMass;
 
