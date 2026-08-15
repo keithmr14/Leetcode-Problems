@@ -7,6 +7,9 @@ public class SetZeroes {
 
     public static void setZeroes(int[][] matrix) {
 
+        if(matrix.length == 0) throw new IllegalArgumentException("matrix mustn't be empty");
+        if(matrix[0].length == 0) throw new IllegalArgumentException("matrix row mustn't be empty");
+
         int m = matrix.length;
         int n = matrix[0].length;
 
@@ -14,6 +17,10 @@ public class SetZeroes {
         Set<Integer> setColZero = new HashSet<>();
 
         for (int row = 0; row < m; row++) {
+
+            if(matrix[row].length != n)
+                throw new IllegalArgumentException("matrix must have the same row lengths");
+
             for (int col = 0; col < n; col++) {
 
                 if (matrix[row][col] == 0) {
