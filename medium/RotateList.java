@@ -9,7 +9,7 @@ public class RotateList {
     public static ListNode rotateRight(ListNode head, int k) {
 
         if(k < 0) throw new IllegalArgumentException(
-                "k can't be negative when shifting the list to the right by k");
+                "right shift " + k + " must be greater than or equal to 0");
 
         if(head == null || head.next == null || k == 0) return head;
 
@@ -51,14 +51,5 @@ public class RotateList {
         System.out.println("Array: " +  Arrays.toString(a2));
         System.out.print("Rotated: ");
         printList(rotateRight(h2, k2));
-
-        // example 3
-        int[] a3 = {};
-        int k3 = 0;
-        ListNode h3 = buildList(a3);
-        System.out.println("\nShift Right: " + k3);
-        System.out.println("Array: " +  Arrays.toString(a3));
-        System.out.print("Rotated: ");
-        printList(rotateRight(h3, k3));
     }
 }
