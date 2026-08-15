@@ -8,7 +8,7 @@ public class RotatedDigits {
     public static int rotatedDigits(int n) {
 
         if(n < 1 || n == Integer.MAX_VALUE)
-            throw new IllegalArgumentException("n must be greater than 0 and less than Integer.MAX_VALUE");
+            throw new IllegalArgumentException("n of " + n + " must be between 1 and Integer.MAX_VALUE - 1");
 
         if(n >= memo.length) {
 
