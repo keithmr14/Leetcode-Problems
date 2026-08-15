@@ -11,15 +11,33 @@ public class CanBeEqual2 {
         int[] odd = new int[26];
 
         for(int i = 0; i < n; i += 2) {
-            even[s1.charAt(i) - 'a']++;
-            even[s2.charAt(i) - 'a']--;
+
+            char c1 = s1.charAt(i);
+            char c2 = s2.charAt(i);
+
+            if(c1 < 'a' || c1 > 'z') throw new IllegalArgumentException(
+                    "character '" + c1 + "' in string 1 must be a lowercase english letter");
+            if(c2 < 'a' || c2 > 'z') throw new IllegalArgumentException(
+                    "character '" + c2 + "' in string 2 must be a lowercase english letter");
+
+            even[c1 - 'a']++;
+            even[c2 - 'a']--;
         }
 
         for(int count : even) if(count != 0) return false;
 
         for(int i = 1; i < n; i += 2) {
-            odd[s1.charAt(i) - 'a']++;
-            odd[s2.charAt(i) - 'a']--;
+
+            char c1 = s1.charAt(i);
+            char c2 = s2.charAt(i);
+
+            if(c1 < 'a' || c1 > 'z') throw new IllegalArgumentException(
+                    "character '" + c1 + "' in string 1 must be a lowercase english letter");
+            if(c2 < 'a' || c2 > 'z') throw new IllegalArgumentException(
+                    "character '" + c2 + "' in string 2 must be a lowercase english letter");
+
+            odd[c1 - 'a']++;
+            odd[c2 - 'a']--;
         }
 
         for (int count : odd) if(count != 0) return false;
