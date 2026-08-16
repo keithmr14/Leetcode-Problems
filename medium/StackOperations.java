@@ -6,14 +6,17 @@ public class StackOperations {
 
     public static List<String> buildArray(int[] target, int n) {
 
-        if(n < 1) throw new IllegalArgumentException("n is invalid");
+        if(n < 1) throw new IllegalArgumentException("n of " + n + " must be greater than or equal to 1");
 
         List<String> operations = new ArrayList<>();
         int stream = 1;
 
         for(int i = 0; i < target.length && stream <= n; i++) {
 
-            if(target[i] > n || target[i] < stream) throw new IllegalArgumentException("target is unattainable");
+            int t = target[i];
+
+            if(t < 1 || t > n) throw new IllegalArgumentException("target " + t + " must be between 1 and n of " + n);
+            if(t < stream) throw new IllegalArgumentException("target " + t + " at index " + i + " breaks strictly increasing sequence");
 
             if(target[i] == stream) {
                 operations.add("Push");
