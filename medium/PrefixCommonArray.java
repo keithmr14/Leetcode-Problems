@@ -23,18 +23,18 @@ public class PrefixCommonArray {
             int b = B[i];
 
             if(a < 1 || a > n)
-                throw new IllegalArgumentException("integer " + a + " in array 1 must be between 1 and n (array's length)");
+                throw new IllegalArgumentException("integer " + a + " in array 1 must be between 1 and array's length of " + n);
             if(b < 1 || b > n)
-                throw new IllegalArgumentException("integer " + b + " in array 2 must be between 1 and n (array's length)");
+                throw new IllegalArgumentException("integer " + b + " in array 2 must be between 1 and array's length of " + n);
 
             if(prevNumsA.contains(a))
-                throw new IllegalArgumentException("integer " + a + " appears twice in array 1, invalid as permutation");
+                throw new IllegalArgumentException("integer " + a + " must appear only once in array 1");
 
             if(prevNumsB.contains(a)) common++;
             else prevNumsA.add(a);
 
             if(prevNumsB.contains(b))
-                throw new IllegalArgumentException("integer " + b + " appears twice in array 2, invalid as permutation");
+                throw new IllegalArgumentException("integer " + b + " must appear only once in array 2");
 
             if(prevNumsA.contains(b)) common++;
             else prevNumsB.add(b);
