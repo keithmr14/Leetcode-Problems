@@ -76,12 +76,5 @@ public class PartitionPivot {
         System.out.println("\nArray: " + Arrays.toString(a2));
         System.out.println("Pivot: " + p2);
         System.out.println("Partition: " + Arrays.toString(pivotArray(a2, p2)));
-
-        // example 3
-        int[] a3 = {};
-        int p3 = -1;
-        System.out.println("\nArray: " + Arrays.toString(a3));
-        System.out.println("Pivot: " + p3);
-        System.out.println("Partition: " + Arrays.toString(pivotArray(a3, p3)));
     }
 }
