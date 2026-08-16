@@ -6,7 +6,7 @@ public class TotalSubarray1 {
 
     public static long maxTotalValue(int[] nums, int k) {
 
-        if(k < 1) throw new IllegalArgumentException("number of subarrays k must be >= 1");
+        if(k < 1) throw new IllegalArgumentException("k of " + k + " must be greater than or equal to 1");
 
         int max = Integer.MIN_VALUE;
         int min = Integer.MAX_VALUE;
@@ -26,13 +26,15 @@ public class TotalSubarray1 {
         // example 1
         int[] a1 = {1, 3, 2};
         int k1 = 2;
-        System.out.println("\nk = " + k1 + "    " + Arrays.toString(a1));
-        System.out.println("Max Subarray Val: " + maxTotalValue(a1, k1));
+        System.out.println("\nk = " + k1);
+        System.out.println("Array: " + Arrays.toString(a1));
+        System.out.println("Total Value: " + maxTotalValue(a1, k1));
 
         // example 2
         int[] a2 = {4, 2, 5, 1};
         int k2 = 3;
-        System.out.println("\nk = " + k2 + "    " + Arrays.toString(a2));
-        System.out.println("Max Subarray Val: " + maxTotalValue(a2, k2));
+        System.out.println("\nk = " + k2);
+        System.out.println("Array: " + Arrays.toString(a2));
+        System.out.println("Total Value: " + maxTotalValue(a2, k2));
     }
 }
