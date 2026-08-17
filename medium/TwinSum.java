@@ -8,7 +8,7 @@ public class TwinSum {
 
     public static int pairSum(ListNode head) {
 
-        if(head == null) throw new IllegalArgumentException("list is empty");
+        if(head == null) throw new IllegalArgumentException("list mustn't be empty");
 
         ListNode half = new ListNode();
         half.next = head;
@@ -17,17 +17,23 @@ public class TwinSum {
         Stack<Integer> firstHalf = new Stack<>();
 
         while(fast.next != null) {
-            
+
             half = half.next;
             firstHalf.push(half.val);
             fast = fast.next.next;
-            if(fast == null) throw new IllegalArgumentException("list size needs to be even");
+            if(fast == null) throw new IllegalArgumentException("list length must be even");
         }
 
         while(half.next != null) {
 
             half = half.next; // go through the second half
-            maxTwin = Math.max(maxTwin, half.val + firstHalf.pop());
+            int firstNum = firstHalf.pop();
+            try {
+                int twinSum = Math.addExact(half.val, firstNum);
+                maxTwin = Math.max(maxTwin, twinSum);
+            }
+            catch(ArithmeticException e) { throw new ArithmeticException(
+                    "exception from " + firstNum + " + " + half.val + " due to integer overflow"); }
         }
 
         return maxTwin;
