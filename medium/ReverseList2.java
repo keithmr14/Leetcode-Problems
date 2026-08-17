@@ -8,7 +8,11 @@ public class ReverseList2 {
 
     public static ListNode reverseBetween(ListNode head, int left, int right) {
 
-        if(left > right || right < 1 || head == null) throw new IllegalArgumentException("range is invalid");
+        if(head == null) throw new IllegalArgumentException("list mustn't be empty");
+        if(left < 1) throw new IllegalArgumentException(
+                "left and right must be greater than or equal to 1");
+        if(left > right) throw new IllegalArgumentException(
+                "left " + left + " must be less than or equal to right " + right);
 
         ListNode dummy = new ListNode();
         dummy.next = head;
@@ -18,7 +22,8 @@ public class ReverseList2 {
 
         for(int i = 1; i <= left; i++) { // stop on or before left's node
 
-            if(curr == null) throw new IllegalArgumentException("left node not found");
+            if(curr == null) throw new IllegalArgumentException(
+                    "left " + left + " mustn't be greater than list length " + --i);
 
             if(i + 1 == left) {
                 beforeleft = curr;
@@ -28,7 +33,9 @@ public class ReverseList2 {
             if(i == left) nodeInRange = curr;
             else curr = curr.next;
         }
-        if (nodeInRange == null) throw new IllegalArgumentException("left node not found");
+        if (nodeInRange == null) throw new IllegalArgumentException(
+                "left " + left + " mustn't be greater than list length " + --left);
+        if(left == right) return dummy.next;
 
         ListNode tail = nodeInRange; // tail of the reverse range
         ListNode prev = tail; // when reversing node, point those nodes to prev
@@ -38,7 +45,8 @@ public class ReverseList2 {
 
         while(left <= right) {
 
-            if(nodeInRange == null) throw new IllegalArgumentException("right node not found");
+            if(nodeInRange == null) throw new IllegalArgumentException(
+                    "right " + right + " mustn't be greater than list length " + --left);
 
             if(left == right) { // reverse the right's node
                 ListNode afterRight = nodeInRange.next;
