@@ -7,12 +7,17 @@ public class BaseballGame {
     public static int calPoints(String[] operations) {
 
         Stack<Integer> nums = new Stack<>();
-        int finalScore = 0;
 
-        for (String op : operations) {
+
+        for (int i = 0; i < operations.length; i++) {
+
+            String op = operations[i];
+            IllegalStateException noNumLeft = new IllegalStateException(
+                    "operator at index " + i + " doesn't have enough operands to work with");
+
             switch (op) {
                 case "+": // record the sum of the last two num
-                    if(nums.size() < 2) throw new IllegalArgumentException("there's not enough scores to add prior to '+'");
+                    if(nums.size() < 2) throw noNumLeft;
                     int top = nums.pop();
                     try {
                         int sum = Math.addExact(nums.peek(), top);
@@ -20,21 +25,23 @@ public class BaseballGame {
                         nums.push(sum);
                     }
                     catch(ArithmeticException e) {
-                        throw new IllegalArgumentException(top + " + " + nums.peek() + " resulted in integer overflow"); }
+                        throw new ArithmeticException(
+                                "exception from " + top + " + " + nums.peek() + " due to integer overflow"); }
                     break;
 
                 case "D": // record 2 times the last num
-                    if(nums.isEmpty()) throw new IllegalArgumentException("there's not enough scores to multiply prior to 'D'");
+                    if(nums.isEmpty()) throw noNumLeft;
                     try {
                         int product = Math.multiplyExact(nums.peek(), 2);
                         nums.push(product);
                     }
                     catch(ArithmeticException e) {
-                        throw new IllegalArgumentException(nums.peek() + " * 2 resulted in an integer overflow"); }
+                        throw new ArithmeticException(
+                                "exception from " + nums.peek() + " * 2 due to an integer overflow"); }
                     break;
 
                 case "C": // invalidate last num
-                    if(nums.isEmpty()) throw new IllegalArgumentException("there's not enough scores to invalidate prior to 'C'");
+                    if(nums.isEmpty()) throw noNumLeft;
                     nums.pop();
                     break;
 
@@ -43,11 +50,20 @@ public class BaseballGame {
                         nums.push(Integer.parseInt(op));
                     }
                     catch(NumberFormatException e) {
-                        throw new IllegalArgumentException("operation \"" + op + "\" is invalid"); }
+                        throw new NumberFormatException(
+                                "operation '" + op + "' must be an integer, +, D, or C"); }
             }
         }
-        // add all the scores
-        while(!nums.empty()) finalScore += nums.pop();
+        int finalScore = 0;
+
+        while(!nums.empty()) {
+            int num = nums.pop();
+            try {
+                finalScore = Math.addExact(finalScore, num);
+            }
+            catch(ArithmeticException e) { throw new ArithmeticException(
+                "exception from " + num + " + " + finalScore + " due to integer overflow at sum of all scores"); }
+        }
 
         return finalScore;
     }
