@@ -12,8 +12,8 @@ public class BaseballGame {
         for (int i = 0; i < operations.length; i++) {
 
             String op = operations[i];
-            IllegalStateException noNumLeft = new IllegalStateException(
-                    "operator at index " + i + " doesn't have enough operands to work with");
+            IllegalStateException noNumLeft = new IllegalStateException("operator '"
+                    + op + "' at index " + i + " doesn't have enough operands to work with");
 
             switch (op) {
                 case "+": // record the sum of the last two num
@@ -25,8 +25,8 @@ public class BaseballGame {
                         nums.push(sum);
                     }
                     catch(ArithmeticException e) {
-                        throw new ArithmeticException(
-                                "exception from " + top + " + " + nums.peek() + " due to integer overflow"); }
+                        throw new ArithmeticException("exception from " + top
+                                + " + " + nums.peek() + " due to integer overflow at index " + i); }
                     break;
 
                 case "D": // record 2 times the last num
@@ -36,8 +36,8 @@ public class BaseballGame {
                         nums.push(product);
                     }
                     catch(ArithmeticException e) {
-                        throw new ArithmeticException(
-                                "exception from " + nums.peek() + " * 2 due to an integer overflow"); }
+                        throw new ArithmeticException("exception from "
+                                + nums.peek() + " * 2 due to an integer overflow at index " + i); }
                     break;
 
                 case "C": // invalidate last num
@@ -51,7 +51,7 @@ public class BaseballGame {
                     }
                     catch(NumberFormatException e) {
                         throw new NumberFormatException(
-                                "operation '" + op + "' must be an integer, +, D, or C"); }
+                                "operation '" + op + "' at index " + i + " must be an integer, +, D, or C"); }
             }
         }
         int finalScore = 0;
@@ -61,8 +61,8 @@ public class BaseballGame {
             try {
                 finalScore = Math.addExact(finalScore, num);
             }
-            catch(ArithmeticException e) { throw new ArithmeticException(
-                "exception from " + num + " + " + finalScore + " due to integer overflow at sum of all scores"); }
+            catch(ArithmeticException e) { throw new ArithmeticException("exception from "
+                    + num + " + " + finalScore + " due to integer overflow at sum of all scores"); }
         }
 
         return finalScore;
