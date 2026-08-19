@@ -6,14 +6,15 @@ public class RotateImage {
     public static void rotate(int[][] matrix) {
 
         if(matrix.length == 0) throw new IllegalArgumentException("matrix mustn't be empty");
-        if(matrix[0].length == 0) throw new IllegalArgumentException("matrix row mustn't be empty");
+        if(matrix[0].length == 0) throw new IllegalArgumentException(
+                "matrix row at index 0 mustn't be empty");
 
         int length = matrix[0].length;
 
         for(int[] row : matrix) {
 
             if(row.length != length)
-                throw new IllegalArgumentException("matrix must have the same row lengths");
+                throw new IllegalArgumentException("matrix must have uniform row lengths");
         }
 
         int loops = matrix[0].length / 2;
@@ -37,7 +38,6 @@ public class RotateImage {
 
             inners -= 2; // reduce rotatable indexes by 2
         }
-
         // remove this to reduce runtime in leetCode or add it to show result
         print2dPrimMultiLine(matrix);
     }

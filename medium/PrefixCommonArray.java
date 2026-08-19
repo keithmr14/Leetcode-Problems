@@ -23,9 +23,11 @@ public class PrefixCommonArray {
             int b = B[i];
 
             if(a < 1 || a > n)
-                throw new IllegalArgumentException("integer " + a + " in array 1 must be between 1 and array's length of " + n);
+                throw new IllegalArgumentException("integer " + a + " at index " + i
+                        + "of array 1 must be between 1 and array's length of " + n);
             if(b < 1 || b > n)
-                throw new IllegalArgumentException("integer " + b + " in array 2 must be between 1 and array's length of " + n);
+                throw new IllegalArgumentException("integer " + b + " at index " + i
+                        + "of array 2 must be between 1 and array's length of " + n);
 
             if(prevNumsA.contains(a))
                 throw new IllegalArgumentException("integer " + a + " must appear only once in array 1");

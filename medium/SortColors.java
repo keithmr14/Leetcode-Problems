@@ -7,14 +7,18 @@ public class SortColors {
     public static void sortColors(int[] nums) {
 
         int[] colors = new int[3]; // red, white, & blue counter
-        int id = 0;
 
-        for(int num : nums) {
+        for(int i = 0; i < nums.length; i++) {
 
-            if(num < 0 || num > 2) throw new IllegalArgumentException("color id " + num + " must be 0, 1, or 2");
+            int num = nums[i];
+
+            if(num < 0 || num > 2) throw new IllegalArgumentException(
+                    "color id " + num + " at index " + i + " must be 0, 1, or 2");
 
             colors[num]++;
         }
+
+        int id = 0;
 
         for(int i = 0; i < nums.length; i++) {
 

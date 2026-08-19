@@ -15,8 +15,10 @@ public class StackOperations {
 
             int t = target[i];
 
-            if(t < 1 || t > n) throw new IllegalArgumentException("target " + t + " must be between 1 and n of " + n);
-            if(t < stream) throw new IllegalArgumentException("target " + t + " at index " + i + " breaks strictly increasing sequence");
+            if(t < 1 || t > n) throw new IllegalArgumentException("target " + t + " at index "
+                    + i + " must be between 1 and n of " + n);
+            if(t < stream) throw new IllegalArgumentException("target " + t + " at index "
+                    + i + " breaks strictly increasing sequence");
 
             if(target[i] == stream) {
                 operations.add("Push");

@@ -15,8 +15,8 @@ public class ReversePolish {
 
             if(str.equals("+") || str.equals("-") || str.equals("*") || str.equals("/")) {
 
-                if(stack.size() < 2) throw new IllegalStateException(
-                        "operator '" + str + "' at index " + i + " doesn't have enough operands to work with");
+                if(stack.size() < 2) throw new IllegalStateException("operator '" + str
+                        + "' at index " + i + " doesn't have enough operands to work with");
 
                 int op2 = Integer.parseInt(stack.pop());
                 int op1 = Integer.parseInt(stack.pop());
@@ -31,15 +31,16 @@ public class ReversePolish {
                     };
                     stack.push(String.valueOf(res));
                 }
-                catch(ArithmeticException e) { throw new ArithmeticException(
-                        "exception from " + op1 + " " + str + " " + op2 + " due to " + e.getMessage()); }
+                catch(ArithmeticException e) { throw new ArithmeticException("exception from " + op1
+                        + " " + str + " " + op2 + " due to " + e.getMessage() + " at index " + i); }
             }
             else {
                 try {
                     Integer.parseInt(str);
                 }
                 catch(NumberFormatException e) {
-                    throw new NumberFormatException("token '" + str + "' must be an integer, +, -, *, or /"); }
+                    throw new NumberFormatException("token '" + str
+                            + "' at index " + i + " must be an integer, +, -, *, or /"); }
 
                 stack.push(str);
             }

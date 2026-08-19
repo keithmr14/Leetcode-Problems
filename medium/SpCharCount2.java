@@ -30,9 +30,9 @@ public class SpCharCount2 {
 
                 else if(lastSeenAs == 1) states[c - 'A'] = 2;
             }
-            else throw new IllegalArgumentException("character '" + c + "' must be an english letter");
+            else throw new IllegalArgumentException("character '" + c
+                        + "' at index " + i + " must be an english letter");
         }
-
         int specials = 0;
 
         for(int i = 0; i < 26; i++) { if(states[i] == 2) specials++; }

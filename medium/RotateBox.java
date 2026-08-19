@@ -7,7 +7,8 @@ public class RotateBox {
     public static char[][] rotateTheBox(char[][] boxGrid) {
 
         if(boxGrid.length == 0) throw new IllegalArgumentException("matrix mustn't be empty");
-        if(boxGrid[0].length == 0) throw new IllegalArgumentException("matrix row mustn't be empty");
+        if(boxGrid[0].length == 0) throw new IllegalArgumentException(
+                "matrix row at index 0 mustn't be empty");
 
         int rows = boxGrid.length;
         int cols = boxGrid[0].length;
@@ -16,7 +17,7 @@ public class RotateBox {
         for(int i = 0; i < rows; i++) {
 
             if(boxGrid[i].length != cols)
-                throw new IllegalArgumentException("matrix must have the same row lengths");
+                throw new IllegalArgumentException("matrix must have uniform row lengths");
 
             int fallAt = -1;
 
@@ -37,8 +38,8 @@ public class RotateBox {
                         fallAt--;
                     }
                 }
-                else throw new IllegalArgumentException(
-                        "character '" + c + "' at index (" + i + ", " + j + ") must be ., *, or #");
+                else throw new IllegalArgumentException("character '" + c
+                            + "' at index (" + i + ", " + j + ") must be ., *, or #");
             }
         }
 

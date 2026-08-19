@@ -6,10 +6,8 @@ public class DestroyAsteroids {
 
     public static boolean asteroidsDestroyed(int mass, int[] asteroids) {
 
-        IllegalArgumentException invalidMass = new IllegalArgumentException(
-                "mass " + mass + " must be greater than or equal to 1");
-
-        if(mass < 1) throw invalidMass;
+        if(mass < 1) throw new IllegalArgumentException(
+                "planet mass " + mass + " must be greater than or equal to 1");
 
         long earthMass = mass;
         int n = asteroids.length;
@@ -22,7 +20,8 @@ public class DestroyAsteroids {
 
                 int astMass = asteroids[i];
 
-                if(astMass < 1) throw invalidMass;
+                if(astMass < 1) throw new IllegalArgumentException("asteroid mass "
+                        + mass + " at index " + i + " must be greater than or equal to 1");
 
                 if(earthMass >= astMass) earthMass += astMass;
                 else {
