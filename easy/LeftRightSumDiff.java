@@ -12,23 +12,26 @@ public class LeftRightSumDiff {
         int left = 0;
         // left traverse to record left sum
         for(int i = 0; i < n; i++) {
+
+            int num = nums[i];
             diff[i] = left;
+
+            if(num < 1) throw new IllegalArgumentException("integer "
+                    + num + " at index " + i + " must be greater than or equal to 1");
+            if(i == n - 1) break;
             try {
-                left = Math.addExact(left, nums[i]);
+                left = Math.addExact(left, num);
             }
             catch(ArithmeticException e) {
-                throw new IllegalArgumentException("sum of the elements causes an integer overflow"); }
+                throw new ArithmeticException("exception from left sum "
+                        + left + " + " + num + " due to integer overflow at index " + i); }
         }
 
         int right = 0;
-        // right traverse and subtract right to left sum (then abs)
+        // right traverse, subtract right to left sum, then take absolute value
         for(int i = n - 1; i >= 0; i--) {
-            try {
-                diff[i] = Math.absExact(Math.subtractExact(diff[i], right));
-            }
-            catch(ArithmeticException e) {
-                throw new IllegalArgumentException("difference of right and left sum causes an integer overflow"); }
 
+            diff[i] = Math.abs(diff[i] - right);
             right += nums[i];
         }
 
