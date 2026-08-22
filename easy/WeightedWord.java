@@ -48,7 +48,7 @@ public class WeightedWord {
                 wordWeight = Math.addExact(wordWeight, weight);
             }
             catch(ArithmeticException e) {
-                throw new IllegalArgumentException("exception from weight sum " + wordWeight
+                throw new ArithmeticException("exception from weight sum " + wordWeight
                         + " + " + weight + " due to integer overflow at word \"" + word + "\""); }
         }
 
