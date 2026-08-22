@@ -30,8 +30,8 @@ public class ProcessString1 {
             }
             else if(c == '%') sb.reverse();
 
-            else throw new IllegalArgumentException("character '" + c + "' at index "
-                        + i + " must be a lowercase english letter, *, #, or %");
+            else throw new IllegalArgumentException("character '" + c
+                        + "' must be a lowercase english letter, *, #, or %");
         }
 
         return sb.toString();
