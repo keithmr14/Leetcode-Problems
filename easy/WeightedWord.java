@@ -6,10 +6,19 @@ public class WeightedWord {
 
     public static String mapWordWeights(String[] words, int[] weights) {
 
-        if(weights.length != 26) throw new IllegalArgumentException("weights length should be 26, not " + weights.length);
-        if(words.length == 0) throw new IllegalArgumentException("words array is empty");
+        if(weights.length != 26) throw new IllegalArgumentException(
+                "weights array length " + weights.length + " must be 26");
+        if(words.length == 0) throw new IllegalArgumentException("words array mustn't be empty");
 
         StringBuilder mappedWord = new StringBuilder();
+
+        for(int i = 0; i < 26; i++) {
+
+            int weight = weights[i];
+
+            if(weight < 1) throw new IllegalArgumentException("weight " + weight + " at index "
+                    + i + " must be greater than or equal to 1");
+        }
 
         for(String word : words) {
 
@@ -27,19 +36,21 @@ public class WeightedWord {
 
         for(int i = 0; i < word.length(); i++) {
 
-            char letter = word.charAt(i);
+            char c = word.charAt(i);
 
-            if(letter < 'a' || letter > 'z')
-                throw new IllegalArgumentException("character '" + letter + "' was found in word \"" + word + "\"");
+            if(c < 'a' || c > 'z')
+                throw new IllegalArgumentException("character '" + c
+                        + "' at word \"" + word + "\" must be a lowercase english letter");
+
+            int weight = weights[c - 'a'];
 
             try {
-                wordWeight = Math.addExact(weights[letter - 'a'], wordWeight);
+                wordWeight = Math.addExact(wordWeight, weight);
             }
             catch(ArithmeticException e) {
-                throw new IllegalArgumentException("weight of word \"" + word + "\" causes an integer overflow"); }
+                throw new IllegalArgumentException("exception from weight sum " + wordWeight
+                        + " + " + weight + " due to integer overflow at word \"" + word + "\""); }
         }
-
-        if(wordWeight < 0) throw new IllegalArgumentException("weight of word \"" + word + "\" is negative " + wordWeight);
 
         wordWeight %= 26;
 
