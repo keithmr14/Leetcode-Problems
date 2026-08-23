@@ -10,7 +10,6 @@ public class ClosestTarget {
         int i = startIndex;
         int minDist = words.length;
 
-        if(minDist == 0) throw new IllegalArgumentException("array mustn't be empty");
         if(startIndex < 0 || startIndex + 1 > minDist) throw new IllegalArgumentException("start index "
                 + i + " must be greater than or equal to 0 and less than words array length " + minDist);
         if(target.equals(words[startIndex])) return 0;
