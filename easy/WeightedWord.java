@@ -6,7 +6,8 @@ public class WeightedWord {
 
     public static String mapWordWeights(String[] words, int[] weights) {
 
-        if(weights.length != 26) throw new IllegalArgumentException("weights array length must be 26");
+        if(weights.length != 26) throw new IllegalArgumentException("weights array length " 
+                + weights.length + " must be 26");
         if(words.length == 0) throw new IllegalArgumentException("words array mustn't be empty");
 
         StringBuilder mappedWord = new StringBuilder();
