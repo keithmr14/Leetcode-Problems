@@ -6,7 +6,7 @@ public class WeightedWord {
 
     public static String mapWordWeights(String[] words, int[] weights) {
 
-        if(weights.length != 26) throw new IllegalArgumentException("weights array length " 
+        if(weights.length != 26) throw new IllegalArgumentException("weights array length "
                 + weights.length + " must be 26");
         if(words.length == 0) throw new IllegalArgumentException("words array mustn't be empty");
 
@@ -17,7 +17,7 @@ public class WeightedWord {
             int weight = weights[i];
 
             if(weight < 1) throw new IllegalArgumentException("weight " + weight + " at index "
-                    + i + " must be greater than or equal to 1");
+                    + i + " mustn't be less than 1");
         }
 
         for(String word : words) {

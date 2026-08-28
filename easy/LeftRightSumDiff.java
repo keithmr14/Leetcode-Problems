@@ -17,7 +17,7 @@ public class LeftRightSumDiff {
             diff[i] = left;
 
             if(num < 1) throw new IllegalArgumentException("integer "
-                    + num + " at index " + i + " must be greater than or equal to 1");
+                    + num + " at index " + i + " mustn't be less than 1");
             if(i == n - 1) break;
             try {
                 left = Math.addExact(left, num);

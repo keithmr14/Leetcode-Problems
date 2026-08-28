@@ -11,8 +11,8 @@ public class MaxElemDecrease {
         int max = 1;
         Arrays.sort(arr);
 
-        if(arr[0] < 1) throw new IllegalArgumentException("integer " + arr[0] + " must be greater than or equal to 1");
-        
+        if(arr[0] < 1) throw new IllegalArgumentException("integer " + arr[0] + " mustn't be less than 1");
+
         arr[0] = 1;
 
         for(int i = 1; i < arr.length; i++) {

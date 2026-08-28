@@ -9,7 +9,7 @@ public class RotateList {
     public static ListNode rotateRight(ListNode head, int k) {
 
         if(k < 0) throw new IllegalArgumentException(
-                "right shift " + k + " must be greater than or equal to 0");
+                "right shift " + k + " mustn't be less than 0");
 
         if(head == null || head.next == null || k == 0) return head;
 

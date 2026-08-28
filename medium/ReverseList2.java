@@ -10,9 +10,9 @@ public class ReverseList2 {
 
         if(head == null) throw new IllegalArgumentException("list mustn't be empty");
         if(left < 1) throw new IllegalArgumentException(
-                "left and right must be greater than or equal to 1");
+                "left and right mustn't be less than 1");
         if(left > right) throw new IllegalArgumentException(
-                "left " + left + " must be less than or equal to right " + right);
+                "left " + left + " mustn't be greater than right " + right);
 
         ListNode dummy = new ListNode();
         dummy.next = head;
