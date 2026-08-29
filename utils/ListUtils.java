@@ -4,11 +4,13 @@ public class ListUtils {
 
     public static ListNode buildList(int[] arr) {
 
-        if (arr == null || arr.length == 0) return null;
+        if(arr == null || arr.length == 0) return null;
+
         ListNode dummy = new ListNode();
         ListNode curr = dummy;
 
-        for (int val : arr) {
+        for(int val : arr) {
+
             curr.next = new ListNode(val);
             curr = curr.next;
         }
@@ -19,7 +21,7 @@ public class ListUtils {
 
         ListNode[] listArr = new ListNode[arr.length];
 
-        for (int i = 0; i < arr.length; i++) {
+        for(int i = 0; i < arr.length; i++) {
 
             ListNode dummy = new ListNode();
             ListNode curr = dummy;
@@ -39,11 +41,28 @@ public class ListUtils {
 
         System.out.print("[");
 
-        while (head != null) {
+        while(head != null) {
+
             System.out.print(head.val);
-            if (head.next != null) System.out.print(", ");
+
+            if(head.next != null) System.out.print(", ");
+
             head = head.next;
         }
         System.out.print("]\n");
+    }
+
+    public static boolean isNonDecreasingList(ListNode head) {
+
+        ListNode prev = head;
+
+        while(head != null) {
+
+            if(head.val < prev.val) return false;
+
+            prev = head;
+            head = head.next;
+        }
+        return true;
     }
 }
