@@ -17,7 +17,7 @@ public class MinCostCandy {
                     minCost = Math.addExact(minCost, cost[i]);
 
                 } catch(ArithmeticException e) {
-                    throw new IllegalArgumentException("exception from " + minCost
+                    throw new ArithmeticException("exception from " + minCost
                             + " + " + cost[i] + " due to integer overflow"); }
             }
             candies++;
