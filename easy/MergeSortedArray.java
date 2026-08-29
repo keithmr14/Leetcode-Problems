@@ -8,11 +8,11 @@ public class MergeTwoList {
 
     public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
 
-        // remove this to reduce runtime in LeetCode or add it to show result
+        // remove this to reduce runtime in leetCode, but add it outside leetCode
         if(!(isNonDecreasingList(list1) && isNonDecreasingList(list2)))
             throw new IllegalArgumentException("both lists must be non-decreasing");
 
-        ListNode dummy = new ListNode(0);
+        ListNode dummy = new ListNode();
         ListNode curr = dummy;
 
         while(list1 != null || list2 != null) {
