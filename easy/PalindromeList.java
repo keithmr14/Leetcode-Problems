@@ -8,6 +8,8 @@ public class PalindromeList {
 
     public static boolean isPalindrome(ListNode head) {
 
+        if(head == null) throw new IllegalArgumentException("list mustn't be empty");
+
         ListNode curr = head;
         ListNode secondHalf = head;
         ListNode firstHalf = new ListNode(head.val);
