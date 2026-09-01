@@ -8,14 +8,13 @@ public class BaseballGame {
 
         Stack<Integer> nums = new Stack<>();
 
-
-        for (int i = 0; i < operations.length; i++) {
+        for(int i = 0; i < operations.length; i++) {
 
             String op = operations[i];
             IllegalStateException noNumLeft = new IllegalStateException("operator '"
                     + op + "' at index " + i + " doesn't have enough operands to work with");
 
-            switch (op) {
+            switch(op) {
                 case "+": // record the sum of the last two num
                     if(nums.size() < 2) throw noNumLeft;
                     int top = nums.pop();

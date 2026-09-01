@@ -15,10 +15,10 @@ public class CanBeEqual2 {
             char c1 = s1.charAt(i);
             char c2 = s2.charAt(i);
 
-            if(c1 < 'a' || c1 > 'z') throw new IllegalArgumentException(
-                    "character '" + c1 + "' in string 1 must be a lowercase english letter");
-            if(c2 < 'a' || c2 > 'z') throw new IllegalArgumentException(
-                    "character '" + c2 + "' in string 2 must be a lowercase english letter");
+            if(c1 < 'a' || c1 > 'z') throw new IllegalArgumentException("character '" + c1
+                    + "' in string \"" + s1 + "\" must be a lowercase english letter");
+            if(c2 < 'a' || c2 > 'z') throw new IllegalArgumentException("character '" + c2
+                    + "' in string \"" + s2 + "\" must be a lowercase english letter");
 
             even[c1 - 'a']++;
             even[c2 - 'a']--;
@@ -31,10 +31,10 @@ public class CanBeEqual2 {
             char c1 = s1.charAt(i);
             char c2 = s2.charAt(i);
 
-            if(c1 < 'a' || c1 > 'z') throw new IllegalArgumentException(
-                    "character '" + c1 + "' in string 1 must be a lowercase english letter");
-            if(c2 < 'a' || c2 > 'z') throw new IllegalArgumentException(
-                    "character '" + c2 + "' in string 2 must be a lowercase english letter");
+            if(c1 < 'a' || c1 > 'z') throw new IllegalArgumentException("character '" + c1
+                    + "' in string \"" + s1 + "\" must be a lowercase english letter");
+            if(c2 < 'a' || c2 > 'z') throw new IllegalArgumentException("character '" + c2
+                    + "' in string \"" + s2 + "\" must be a lowercase english letter");
 
             odd[c1 - 'a']++;
             odd[c2 - 'a']--;
@@ -42,8 +42,8 @@ public class CanBeEqual2 {
 
         for (int count : odd) if(count != 0) return false;
 
-        // if both counter is empty (letters from both string cancel each other)
-        return true;
+        return true; // if both counter is empty (letters from both string cancel each other)
+
     }
 
     public static void main(String[] args) {
@@ -53,19 +53,22 @@ public class CanBeEqual2 {
         // example 1
         String a1 = "abcdba";
         String a2 = "cabdab";
-        System.out.println("\nNum 1: " + a1 + "\nNum 2: " + a2);
-        System.out.println("Can be made equal ? " + checkStrings(a1, a2));
+        System.out.println("\nString 1: \"" + a1 + "\"");
+        System.out.println("String 2: \"" + a2 + "\"");
+        System.out.println("Can be made equal? " + checkStrings(a1, a2));
 
         // example 2
         String b1 = "abe";
         String b2 = "bea";
-        System.out.println("\nNum 1: " + b1 + "\nNum 2: " + b2);
-        System.out.println("Can be made equal ? " + checkStrings(b1, b2));
+        System.out.println("\nString 1: \"" + b1 + "\"");
+        System.out.println("String 2: \"" + b2 + "\"");
+        System.out.println("Can be made equal? " + checkStrings(b1, b2));
 
         // example 3
         String c1 = "";
         String c2 = "";
-        System.out.println("\nNum 1: " + c1 + "\nNum 2: " + c2);
-        System.out.println("Can be made equal ? " + checkStrings(c1, c2));
+        System.out.println("\nString 1: \"" + c1 + "\"");
+        System.out.println("String 2: \"" + c2 + "\"");
+        System.out.println("Can be made equal? " + checkStrings(c1, c2));
     }
 }
