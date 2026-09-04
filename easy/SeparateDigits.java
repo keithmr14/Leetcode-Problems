@@ -6,23 +6,34 @@ public class SeparateDigits {
 
     public static int[] separateDigits(int[] nums) {
 
-        List<Integer> list = new ArrayList<>(nums.length * 4);
+        int digits = 0;
+
+        for (int num : nums) {
+
+            if (num < 0) throw new IllegalArgumentException("integer elements mustn't be less than 0");
+
+            String numStr = String.valueOf(num);
+            digits += numStr.length();
+
+            if(digits > 10_000_000) throw new IllegalStateException(
+                    "result array length exceeded maximum size of 10,000,000");
+        }
+
+        int[] result = new int[digits];
+        int i = 0;
 
         for (int num : nums) {
 
             String numStr = String.valueOf(num);
 
-            if (num < 0) throw new IllegalArgumentException("integer elements mustn't be less than 0");
-
             for (int j = 0; j < numStr.length(); j++) {
 
-                list.add(Character.getNumericValue(numStr.charAt(j)));
+                result[i] = Character.getNumericValue(numStr.charAt(j));
+                i++;
             }
-
-            if (list.size() > 1000) throw new IllegalStateException("list size exceeded maximum size of 1000");
         }
 
-        return list.stream().mapToInt(Integer::intValue).toArray();
+        return result;
     }
 
     public static void main(String[] args) {
