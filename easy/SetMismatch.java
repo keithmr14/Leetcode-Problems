@@ -25,12 +25,11 @@ public class SetMismatch {
         if(current.size() != n - 1) throw new IllegalArgumentException(
                 "array must have 1 duplicate and 1 missing");
 
-
         for(int i = 1; i <= n; i++) {
 
             if(!current.contains(i)) ans[1] = i;
         }
-
+        
         return ans;
     }
 
