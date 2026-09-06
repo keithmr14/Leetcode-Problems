@@ -22,7 +22,7 @@ public class MergeKLists {
 
                 ListNode next = curr.next;
 
-                if(next.val < curr.val) throw new IllegalArgumentException("a list was not sorted increasingly");
+                if(next.val < curr.val) throw new IllegalArgumentException("all lists must be sorted non-decreasingly");
 
                 if(next.val == curr.val) curr = curr.next;
 
