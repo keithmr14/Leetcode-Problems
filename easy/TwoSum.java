@@ -35,8 +35,8 @@ public class TwoSum {
         System.out.println("1. Two Sum");
 
         // example 1
-        int[] a1 = {2, 2147483646};
-        int t1 = -2147483648;
+        int[] a1 = {2, 7, 11, 15};
+        int t1 = 9;
         System.out.println("\nArray: " + Arrays.toString(a1));
         System.out.println("Target: " + t1);
         System.out.println("Indexes: " + Arrays.toString(twoSum(a1, t1)));

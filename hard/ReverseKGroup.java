@@ -8,7 +8,9 @@ public class ReverseKGroup {
 
     public static ListNode reverseKGroup(ListNode head, int k) {
 
-        if(k < 2) throw new IllegalArgumentException("k must be greater than 1");
+        if(k == 1) return head;
+
+        if(k < 1) throw new IllegalArgumentException("k of " + k + " must be greater than 0");
 
         ListNode curr = head; // next to be reversed node
         ListNode prev = null; // 1 node behind curr, head of every reversed group
@@ -18,7 +20,7 @@ public class ReverseKGroup {
 
         for(ListNode count = head; count != null; count = count.next) { n++; }
 
-        if(n < k) throw new IllegalArgumentException("list is too short to form a group");
+        if(n < k) return head;
 
         int groups = n / k;
 
@@ -52,8 +54,8 @@ public class ReverseKGroup {
         int[] a1 = {1, 2, 3, 4, 5};
         int k1 = 2;
         ListNode h1 = buildList(a1);
-        System.out.println("\nNode per Group (k): " + k1);
-        System.out.println("Array: " + Arrays.toString(a1));
+        System.out.println("\nArray: " + Arrays.toString(a1));
+        System.out.println("Node per Group (k): " + k1);
         System.out.print("Reversed k-Groups: ");
         printList(reverseKGroup(h1, k1));
 
@@ -61,8 +63,8 @@ public class ReverseKGroup {
         int[] a2 = {1, 2, 3, 4, 5, 6};
         int k2 = 3;
         ListNode h2 = buildList(a2);
-        System.out.println("\nNode per Group (k): " + k2);
-        System.out.println("Array: " + Arrays.toString(a2));
+        System.out.println("\nArray: " + Arrays.toString(a2));
+        System.out.println("Node per Group (k): " + k2);
         System.out.print("Reversed k-Groups: ");
         printList(reverseKGroup(h2, k2));
     }
