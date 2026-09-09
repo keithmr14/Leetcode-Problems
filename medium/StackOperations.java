@@ -6,7 +6,7 @@ public class StackOperations {
 
     public static List<String> buildArray(int[] target, int n) {
 
-        if(n < 1) throw new IllegalArgumentException("n of " + n + " must be greater than or equal to 1");
+        if(n < 1) throw new IllegalArgumentException("n of " + n + " must be greater than 0");
 
         List<String> operations = new ArrayList<>();
         int stream = 1;
