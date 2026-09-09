@@ -8,7 +8,7 @@ public class RemoveNthNode {
 
     public static ListNode removeNthFromEnd(ListNode head, int n) {
 
-        if(n <= 0) throw new IllegalArgumentException("n of " + n + " must be greater than or equal to 1");
+        if(n < 1) throw new IllegalArgumentException("n of " + n + " must be greater than 0");
 
         ListNode dummy = new ListNode();
         dummy.next = head;
